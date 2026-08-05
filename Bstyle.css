@@ -7,16 +7,17 @@ body {
 
 /* ---- BRIGHT COLOR VARIABLES ---- */
 :root {
-    --rw-red: #FF3B30;
-    --rw-blue: #00A2FF;
-    --rw-green: #34C759;
-    --rw-yellow: #FFCC00;
-    --rw-purple: #AF52DE;
-    --rw-dark: #1C1C1E;
-    --rw-light: #FFFFFF;
-    --rw-bg: #FFF9F0;
-    --rw-card-bg: #FFFFFF;
+  --rb-red: #e8283b;
+  --rb-dark: #1a1a2e;
+  --rb-mid: #16213e;
+  --rb-card: #0f3460;
+  --rb-accent: #e94560;
+  --rb-light: #f0f0f0;
+  --rb-muted: #a0aec0;
 }
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Segoe UI', sans-serif; background: var(--rb-dark); color: var(--rb-light); min-height: 100vh; }
 
 /* UNIFIED NAVIGATION BAR */
 nav {

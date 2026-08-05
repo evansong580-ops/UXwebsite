@@ -11,32 +11,58 @@
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { font-family: 'Segoe UI', sans-serif; background: var(--rb-dark); color: var(--rb-light); min-height: 100vh; }
 
-/* NAVIGATION */
+/* UNIFIED NAVIGATION BAR */
 nav {
-  background: var(--rb-mid);
+  background: var(--rb-mid); /* Deep Navy background */
   padding: 0 2rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 64px;
-  border-bottom: 3px solid var(--rb-accent);
-  position: sticky; top: 0; z-index: 100;
+  border-bottom: 3px solid var(--rb-accent); /* Accent border along the bottom */
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
+
 .nav-logo {
-  font-size: 1.5rem; font-weight: 900; color: var(--rb-accent);
-  letter-spacing: 1px; cursor: pointer;
-  display: flex; align-items: center; gap: 8px;
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: var(--rb-accent);
+  letter-spacing: 1px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
-.nav-logo span { color: #fff; }
-.nav-links { display: flex; gap: 4px; }
+
+.nav-logo span {
+  color: #ffffff;
+}
+
+.nav-links {
+  display: flex;
+  gap: 6px;
+}
+
+/* Identical look for all navigation buttons */
 .nav-btn {
-  background: none; border: none; color: var(--rb-muted);
-  font-size: 0.95rem; font-weight: 600; padding: 8px 16px;
-  cursor: pointer; border-radius: 6px; transition: all 0.2s;
-  text-decoration: none; display: inline-block;
+  background: transparent;
+  color: var(--rb-muted);
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  display: inline-block;
 }
-.nav-btn:hover { background: var(--rb-card); color: #fff; }
-.nav-btn.active { background: var(--rb-accent); color: #fff; }
+
+/* Hover state on all 4 pages */
+.nav-btn:hover {
+  background: var(--rb-card);
+  color: #ffffff;
+}
 
 /* HERO */
 .hero {

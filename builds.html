@@ -1,150 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RobloxWorld — My Builds</title>
-    <!-- Bootstrap 5 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Custom CSS -->
-    <link href="style.css" rel="stylesheet">
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>RobloxWorld — My Builds</title>
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
 
-<!-- ====== NAVIGATION MENU ====== -->
-<nav class="navbar navbar-expand-lg navbar-dark sticky-top custom-nav">
-    <div class="container">
-        <a class="navbar-brand fw-bold" href="index.html">🧱 RobloxWorld</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navMenu">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                <li class="nav-item"><a class="nav-link active" href="builds.html">My Builds</a></li>
-                <li class="nav-item"><a class="nav-link" href="communitypage.html">Community</a></li>
-                <li class="nav-item"><a class="nav-link" href="aboutmepage.html">About</a></li>
-            </ul>
-        </div>
-    </div>
+<!-- NAVIGATION -->
+<nav>
+  <div class="nav-logo" onclick="location.href='index.html'">
+    &#9632;<span>RobloxWorld</span>
+  </div>
+  <div class="nav-links">
+    <a href="index.html" class="nav-btn">Home</a>
+    <a href="builds.html" class="nav-btn active">My Builds</a>
+  </div>
 </nav>
 
-<!-- ====== BUILD GALLERY ====== -->
-<section class="container py-5">
-    <h2 class="section-title">🏗️ My Build Gallery</h2>
-    <p class="text-muted">A showcase of my Roblox creations — each build is unique. Click to see more!</p>
+<!-- PAGE HEADER -->
+<div style="background: linear-gradient(135deg, var(--rb-mid), var(--rb-dark)); padding: 3.5rem 2rem 2.5rem; text-align: center;">
+  <h1 style="font-size: 2.5rem; font-weight: 900;">My <span style="color:var(--rb-accent)">Builds</span></h1>
+  <p style="color: var(--rb-muted); margin-top: 0.5rem;">Worlds and games I've created in Roblox Studio</p>
+</div>
 
-    <div class="row g-4 mt-1">
-        <!-- Build 1 -->
-        <div class="col-md-6">
-            <div class="card build-card h-100">
-                <div class="img-placeholder">🏰<br><small>Screenshot</small></div>
-                <div class="card-body">
-                    <h5 class="fw-bold">Medieval Castle</h5>
-                    <p class="text-muted small">3-day project with towers, a throne room, and a hidden dungeon. Features working portcullis gates!</p>
-                    <span class="badge-tag">Adventure</span>
-                    <span class="badge-tag">3 Days</span>
-                    <span class="badge-tag">5,000 blocks</span>
-                </div>
-            </div>
-        </div>
-        <!-- Build 2 -->
-        <div class="col-md-6">
-            <div class="card build-card h-100">
-                <div class="img-placeholder">🌆<br><small>Screenshot</small></div>
-                <div class="card-body">
-                    <h5 class="fw-bold">Modern City</h5>
-                    <p class="text-muted small">Skyscrapers, roads, and working streetlights. Fully walkable — NPCs included!</p>
-                    <span class="badge-tag">Roleplay</span>
-                    <span class="badge-tag">1 Week</span>
-                    <span class="badge-tag">12,000 blocks</span>
-                </div>
-            </div>
-        </div>
-        <!-- Build 3 -->
-        <div class="col-md-6">
-            <div class="card build-card h-100">
-                <div class="img-placeholder">🔥<br><small>Screenshot</small></div>
-                <div class="card-body">
-                    <h5 class="fw-bold">Obby Park</h5>
-                    <p class="text-muted small">10-stage obstacle course with lava jumps, moving platforms, and a bonus reward room.</p>
-                    <span class="badge-tag">Obby</span>
-                    <span class="badge-tag">2 Days</span>
-                    <span class="badge-tag">3,000 blocks</span>
-                </div>
-            </div>
-        </div>
-        <!-- Build 4 -->
-        <div class="col-md-6">
-            <div class="card build-card h-100">
-                <div class="img-placeholder">🌳<br><small>Screenshot</small></div>
-                <div class="card-body">
-                    <h5 class="fw-bold">Treehouse Village</h5>
-                    <p class="text-muted small">Connected treehouses with rope bridges and a zipline. Cozy and fun to explore!</p>
-                    <span class="badge-tag">Nature</span>
-                    <span class="badge-tag">4 Days</span>
-                    <span class="badge-tag">4,500 blocks</span>
-                </div>
-            </div>
-        </div>
+<div class="section">
+  <div class="stats-row">
+    <div class="stat-card"><div class="num">12</div><div class="label">Total Builds</div></div>
+    <div class="stat-card"><div class="num">8.4K</div><div class="label">Total Visits</div></div>
+    <div class="stat-card"><div class="num">96%</div><div class="label">Positive Ratings</div></div>
+    <div class="stat-card"><div class="num">3yrs</div><div class="label">Building Experience</div></div>
+  </div>
+
+  <h2 class="section-title">Featured <span class="accent">Builds</span></h2>
+  <div class="divider"></div>
+  <p class="section-sub">Click on any build to learn more about the project.</p>
+
+  <div class="builds-grid">
+    <div class="build-card">
+      <div class="build-thumb bg1">
+        <span>&#127968;</span>
+        <div class="overlay">View Build</div>
+      </div>
+      <div class="build-info">
+        <h4>Sky City</h4>
+        <p>A floating city above the clouds with glass bridges and sky trains.</p>
+        <div class="build-meta"><span>&#128065; 2.1K visits</span><span>&#11088; 4.9</span><span>Roleplay</span></div>
+      </div>
     </div>
-</section>
-
-<!-- ====== BUILD STATISTICS TABLE ====== -->
-<section class="container pb-5">
-    <h2 class="section-title">📊 Build Statistics</h2>
-    <div class="table-responsive">
-        <table class="table table-bordered table-hover custom-table">
-            <thead>
-                <tr>
-                    <th>Build Name</th>
-                    <th>Category</th>
-                    <th>Time Spent</th>
-                    <th>Blocks Used</th>
-                    <th>Likes</th>
-                    <th>Status</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Medieval Castle</td><td>Adventure</td><td>3 days</td>
-                    <td>~5,000</td><td>128</td><td>✅ Published</td>
-                </tr>
-                <tr>
-                    <td>Modern City</td><td>Roleplay</td><td>1 week</td>
-                    <td>~12,000</td><td>256</td><td>✅ Published</td>
-                </tr>
-                <tr>
-                    <td>Obby Park</td><td>Obby</td><td>2 days</td>
-                    <td>~3,000</td><td>89</td><td>✅ Published</td>
-                </tr>
-                <tr>
-                    <td>Treehouse Village</td><td>Nature</td><td>4 days</td>
-                    <td>~4,500</td><td>175</td><td>🔄 Updating</td>
-                </tr>
-                <tr>
-                    <td>Space Station</td><td>Sci-Fi</td><td>In progress</td>
-                    <td>~2,000</td><td>—</td><td>🔨 Building</td>
-                </tr>
-            </tbody>
-        </table>
+    <div class="build-card">
+      <div class="build-thumb bg2">
+        <span>&#128165;</span>
+        <div class="overlay">View Build</div>
+      </div>
+      <div class="build-info">
+        <h4>Ninja Obby</h4>
+        <p>100-stage parkour challenge inspired by ninja warrior courses.</p>
+        <div class="build-meta"><span>&#128065; 1.8K visits</span><span>&#11088; 4.7</span><span>Obby</span></div>
+      </div>
     </div>
-</section>
-
-<!-- ====== MULTIMEDIA: VIDEO ====== -->
-<section class="container pb-5">
-    <h2 class="section-title">🎬 Build Walkthrough Video</h2>
-    <div class="card p-4">
-        <div class="img-placeholder" style="aspect-ratio: 16/9;">
-            ▶<br><small>Embedded Video — Modern City Tour</small>
-        </div>
+    <div class="build-card">
+      <div class="build-thumb bg3">
+        <span>&#127807;</span>
+        <div class="overlay">View Build</div>
+      </div>
+      <div class="build-info">
+        <h4>Jungle Tycoon</h4>
+        <p>Build your own jungle empire and defend it from raiders.</p>
+        <div class="build-meta"><span>&#128065; 1.5K visits</span><span>&#11088; 4.6</span><span>Tycoon</span></div>
+      </div>
     </div>
-</section>
+    <div class="build-card">
+      <div class="build-thumb bg4">
+        <span>&#127866;</span>
+        <div class="overlay">View Build</div>
+      </div>
+      <div class="build-info">
+        <h4>Café Simulator</h4>
+        <p>Run your own café, hire staff, and serve customers in this chill sim.</p>
+        <div class="build-meta"><span>&#128065; 940 visits</span><span>&#11088; 4.8</span><span>Simulation</span></div>
+      </div>
+    </div>
+    <div class="build-card">
+      <div class="build-thumb bg5">
+        <span>&#128737;</span>
+        <div class="overlay">View Build</div>
+      </div>
+      <div class="build-info">
+        <h4>Battle Arena X</h4>
+        <p>Fast-paced PvP arena with 5 unique maps and weapon loadouts.</p>
+        <div class="build-meta"><span>&#128065; 1.2K visits</span><span>&#11088; 4.5</span><span>PvP</span></div>
+      </div>
+    </div>
+    <div class="build-card">
+      <div class="build-thumb bg6">
+        <span>&#127756;</span>
+        <div class="overlay">View Build</div>
+      </div>
+      <div class="build-info">
+        <h4>Deep Ocean World</h4>
+        <p>Underwater exploration game with hidden caves and treasure hunts.</p>
+        <div class="build-meta"><span>&#128065; 870 visits</span><span>&#11088; 4.7</span><span>Adventure</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BUILD TOOLS TABLE -->
+  <h2 class="section-title" style="margin-top:3rem;">Build <span class="accent">Tools I Use</span></h2>
+  <div class="divider"></div>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Tool</th><th>Purpose</th><th>Skill Level</th><th>Used In</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Roblox Studio</td><td>Main building environment</td><td><span class="badge badge-green">Expert</span></td><td>All builds</td></tr>
+        <tr><td>Lua Scripting</td><td>Game logic & interactivity</td><td><span class="badge badge-blue">Intermediate</span></td><td>6 builds</td></tr>
+        <tr><td>Blender</td><td>Custom 3D mesh models</td><td><span class="badge badge-yellow">Beginner</span></td><td>3 builds</td></tr>
+        <tr><td>PartDesigner</td><td>Detailed part creation</td><td><span class="badge badge-blue">Intermediate</span></td><td>5 builds</td></tr>
+        <tr><td>Moon Animator</td><td>Custom character animations</td><td><span class="badge badge-yellow">Beginner</span></td><td>2 builds</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
 
 
 
-<!-- Bootstrap 5 JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="script.js"></script>
 </body>
 </html>

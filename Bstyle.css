@@ -18,37 +18,58 @@ body {
     --rw-card-bg: #FFFFFF;
 }
 
-/* ---- NAVIGATION BAR ---- */
-.custom-nav {
-    background: linear-gradient(135deg, var(--rw-red), #FF6B35);
-    box-shadow: 0 2px 12px rgba(255, 59, 48, 0.3);
+/* UNIFIED NAVIGATION BAR */
+nav {
+  background: var(--rb-mid); /* Deep Navy background */
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+  border-bottom: 3px solid var(--rb-accent); /* Accent border along the bottom */
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
-.custom-nav .navbar-brand {
-    font-size: 1.4rem;
-    color: var(--rw-light) !important;
+.nav-logo {
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: var(--rb-accent);
+  letter-spacing: 1px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
-.custom-nav .nav-link {
-    color: rgba(255, 255, 255, 0.85) !important;
-    font-weight: 600;
-    font-size: 0.95rem;
-    padding: 0.5rem 1rem !important;
-    border-bottom: 3px solid transparent;
-    transition: all 0.2s ease;
+.nav-logo span {
+  color: #ffffff;
 }
 
-.custom-nav .nav-link:hover {
-    color: var(--rw-light) !important;
-    background: rgba(255, 255, 255, 0.15);
-    border-radius: 8px;
+.nav-links {
+  display: flex;
+  gap: 6px;
 }
 
-.custom-nav .nav-link.active {
-    color: var(--rw-light) !important;
-    border-bottom-color: var(--rw-yellow);
+/* Identical look for all navigation buttons */
+.nav-btn {
+  background: transparent;
+  color: var(--rb-muted);
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  display: inline-block;
 }
 
+/* Hover state on all 4 pages */
+.nav-btn:hover {
+  background: var(--rb-card);
+  color: #ffffff;
+}
 
 /* Hero Section */
 header {

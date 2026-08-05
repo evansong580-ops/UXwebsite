@@ -5,20 +5,50 @@ body {
   color: #e0e0e0; /* light text */
 }
 
-/* Navbar */
-.navbar {
-  background-color: #1b263b !important; /* deep blue */
+/* ---- BRIGHT COLOR VARIABLES ---- */
+:root {
+    --rw-red: #FF3B30;
+    --rw-blue: #00A2FF;
+    --rw-green: #34C759;
+    --rw-yellow: #FFCC00;
+    --rw-purple: #AF52DE;
+    --rw-dark: #1C1C1E;
+    --rw-light: #FFFFFF;
+    --rw-bg: #FFF9F0;
+    --rw-card-bg: #FFFFFF;
 }
-.navbar-brand {
-  font-weight: bold;
-  color: #ff4da6 !important; /* pink highlight */
+
+/* ---- NAVIGATION BAR ---- */
+.custom-nav {
+    background: linear-gradient(135deg, var(--rw-red), #FF6B35);
+    box-shadow: 0 2px 12px rgba(255, 59, 48, 0.3);
 }
-.nav-link {
-  color: #e0e0e0 !important;
+
+.custom-nav .navbar-brand {
+    font-size: 1.4rem;
+    color: var(--rw-light) !important;
 }
-.nav-link:hover {
-  color: #ff4da6 !important;
+
+.custom-nav .nav-link {
+    color: rgba(255, 255, 255, 0.85) !important;
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 0.5rem 1rem !important;
+    border-bottom: 3px solid transparent;
+    transition: all 0.2s ease;
 }
+
+.custom-nav .nav-link:hover {
+    color: var(--rw-light) !important;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 8px;
+}
+
+.custom-nav .nav-link.active {
+    color: var(--rw-light) !important;
+    border-bottom-color: var(--rw-yellow);
+}
+
 
 /* Hero Section */
 header {

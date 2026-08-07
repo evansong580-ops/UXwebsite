@@ -32,6 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const sortHeaders = document.querySelectorAll('#games-table thead th[data-sort]');
 
   function renumberRows() {
+    if (!gamesTbody) return;
     const medals = ['🥇', '🥈', '🥉'];
     Array.from(gamesTbody.querySelectorAll('tr')).forEach((row, i) => {
       row.children[0].innerHTML = medals[i] ? `${medals[i]} ${i + 1}` : i + 1;

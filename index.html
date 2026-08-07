@@ -11,8 +11,12 @@
 <!-- NAV BAR FOR INDEX.HTML -->
 <nav>
   <div class="nav-logo" onclick="location.href='index.html'">
-    &#9632;<span>RobloxWorld</span>
-  </div>
+  <svg width="28" height="28" viewBox="0 0 28 28" class="logo-mark">
+    <rect x="2" y="2" width="24" height="24" rx="6" fill="var(--rb-accent)"/>
+    <path d="M9 14l5-5 5 5-5 5-5-5z" fill="#fff"/>
+  </svg>
+  <span>RobloxWorld</span>
+</div>
   <div class="nav-links">
     <a href="index.html" class="nav-btn">Home</a>
     <a href="builds.html" class="nav-btn">My Builds</a>
@@ -25,7 +29,6 @@
 <div class="hero">
   <h1>Welcome to<br><span class="accent">RobloxWorld</span></h1>
   <p>A community for Roblox builders, explorers, and players. Join us and start creating your own Roblox adventures today!</p>
-  <a href="builds.html" class="btn-primary">View My Builds</a>
 </div>
 
 <div class="section">
@@ -41,22 +44,22 @@
   </div>
 
   <div class="card-grid">
-    <div class="card">
+    <div class="card" data-modal="build-modal">   <!-- was: <div class="card"> -->
       <div class="card-icon">&#127959;</div>
       <h3>Build Anything</h3>
       <p>Use Roblox Studio to create worlds, games, and experiences limited only by your imagination.</p>
     </div>
-    <div class="card">
+    <div class="card" data-modal="play-modal">   <!-- was: <div class="card"> -->
       <div class="card-icon">&#128101;</div>
       <h3>Play Together</h3>
       <p>Invite friends, join servers, and explore thousands of player-made games with a global community.</p>
     </div>
-    <div class="card">
+    <div class="card" data-modal="earn-modal">   <!-- was: <div class="card"> -->
       <div class="card-icon">&#128176;</div>
       <h3>Earn Robux</h3>
       <p>Monetise your creations through game passes, avatars, and developer exchange programs.</p>
     </div>
-  </div>
+</div>
 </div>
 
 <!-- VIDEO SECTION -->
@@ -64,12 +67,12 @@
   <h2 class="section-title">Watch <span class="accent">Roblox</span> in Action</h2>
   <div class="divider"></div>
   <p class="section-sub">Check out this official Roblox trailer to see what the platform is all about.</p>
-  <div class="video-box">
-    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowfullscreen title="Roblox Showcase">
-    </iframe>
+  <div class="video-box" id="hero-video-box">
+  <div class="video-thumb" id="hero-video-thumb">
+    <img src="https://img.youtube.com/vi/sme76WoJ_-U/maxresdefault.jpg" alt="Roblox Official Trailer">
+    <button class="play-btn" id="hero-play-video-btn" type="button" aria-label="Play video">&#9658;</button>
   </div>
+</div>
 </div>
 
 <!-- POPULAR GAMES TABLE -->
@@ -77,30 +80,237 @@
   <h2 class="section-title">Top <span class="accent">Roblox Games</span></h2>
   <div class="divider"></div>
   <p class="section-sub">The most-played games on the platform right now.</p>
-  <div class="table-wrap">
-    <table>
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>Game Title</th>
-          <th>Genre</th>
-          <th>Active Players</th>
-          <th>Rating</th>
-          <th>Difficulty</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td>1</td><td>Brookhaven RP</td><td>Roleplay</td><td>450,000</td><td>&#11088; 4.8</td><td><span class="badge badge-green">Easy</span></td></tr>
-        <tr><td>2</td><td>Adopt Me!</td><td>Simulation</td><td>380,000</td><td>&#11088; 4.7</td><td><span class="badge badge-green">Easy</span></td></tr>
-        <tr><td>3</td><td>Tower of Hell</td><td>Obby</td><td>210,000</td><td>&#11088; 4.5</td><td><span class="badge badge-red">Hard</span></td></tr>
-        <tr><td>4</td><td>Arsenal</td><td>FPS Shooter</td><td>190,000</td><td>&#11088; 4.6</td><td><span class="badge badge-yellow">Medium</span></td></tr>
-        <tr><td>5</td><td>Blox Fruits</td><td>Adventure</td><td>310,000</td><td>&#11088; 4.9</td><td><span class="badge badge-blue">Varies</span></td></tr>
-        <tr><td>6</td><td>Murder Mystery 2</td><td>Mystery</td><td>175,000</td><td>&#11088; 4.4</td><td><span class="badge badge-yellow">Medium</span></td></tr>
-      </tbody>
-    </table>
+
+  <div class="table-controls">
+    <input type="text" id="game-search" class="modal-input table-search" placeholder="Search by game or genre...">
+  </div>
+
+  <div class="table-scroll-wrap">
+    <div class="table-wrap" id="games-table-wrap">
+      <table id="games-table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th data-sort="title" data-type="text">Game Title</th>
+            <th data-sort="genre" data-type="text">Genre</th>
+            <th data-sort="players" data-type="number">Active Players</th>
+            <th data-sort="rating" data-type="number">Rating</th>
+            <th>Difficulty</th>
+          </tr>
+        </thead>
+        <tbody id="games-tbody">
+          <tr data-title="Brookhaven RP" data-genre="Roleplay" data-players="450000" data-rating="4.8">
+            <td>1</td><td>Brookhaven RP</td><td>Roleplay</td><td><span class="player-count"><span class="p-icon">&#128100;</span>450,000</span></td><td>&#11088; 4.8</td><td><span class="badge badge-green">Easy</span></td>
+          </tr>
+          <tr data-title="Adopt Me!" data-genre="Simulation" data-players="380000" data-rating="4.7">
+            <td>2</td><td>Adopt Me!</td><td>Simulation</td><td><span class="player-count"><span class="p-icon">&#128100;</span>380,000</span></td><td>&#11088; 4.7</td><td><span class="badge badge-green">Easy</span></td>
+          </tr>
+          <tr data-title="Tower of Hell" data-genre="Obby" data-players="210000" data-rating="4.5">
+            <td>3</td><td>Tower of Hell</td><td>Obby</td><td><span class="player-count"><span class="p-icon">&#128100;</span>210,000</span></td><td>&#11088; 4.5</td><td><span class="badge badge-red">Hard</span></td>
+          </tr>
+          <tr data-title="Arsenal" data-genre="FPS Shooter" data-players="190000" data-rating="4.6">
+            <td>4</td><td>Arsenal</td><td>FPS Shooter</td><td><span class="player-count"><span class="p-icon">&#128100;</span>190,000</span></td><td>&#11088; 4.6</td><td><span class="badge badge-yellow">Medium</span></td>
+          </tr>
+          <tr data-title="Blox Fruits" data-genre="Adventure" data-players="310000" data-rating="4.9">
+            <td>5</td><td>Blox Fruits</td><td>Adventure</td><td><span class="player-count"><span class="p-icon">&#128100;</span>310,000</span></td><td>&#11088; 4.9</td><td><span class="badge badge-blue">Varies</span></td>
+          </tr>
+          <tr data-title="Murder Mystery 2" data-genre="Mystery" data-players="175000" data-rating="4.4">
+            <td>6</td><td>Murder Mystery 2</td><td>Mystery</td><td><span class="player-count"><span class="p-icon">&#128100;</span>175,000</span></td><td>&#11088; 4.4</td><td><span class="badge badge-yellow">Medium</span></td>
+          </tr>
+          <tr data-title="Pet Simulator 99" data-genre="Simulation" data-players="290000" data-rating="4.6">
+            <td>7</td><td>Pet Simulator 99</td><td>Simulation</td><td><span class="player-count"><span class="p-icon">&#128100;</span>290,000</span></td><td>&#11088; 4.6</td><td><span class="badge badge-green">Easy</span></td>
+          </tr>
+          <tr data-title="Welcome to Bloxburg" data-genre="Life Sim" data-players="265000" data-rating="4.8">
+            <td>8</td><td>Welcome to Bloxburg</td><td>Life Sim</td><td><span class="player-count"><span class="p-icon">&#128100;</span>265,000</span></td><td>&#11088; 4.8</td><td><span class="badge badge-green">Easy</span></td>
+          </tr>
+          <tr data-title="Piggy" data-genre="Horror" data-players="150000" data-rating="4.5">
+            <td>9</td><td>Piggy</td><td>Horror</td><td><span class="player-count"><span class="p-icon">&#128100;</span>150,000</span></td><td>&#11088; 4.5</td><td><span class="badge badge-yellow">Medium</span></td>
+          </tr>
+          <tr data-title="Royale High" data-genre="Roleplay" data-players="220000" data-rating="4.4">
+            <td>10</td><td>Royale High</td><td>Roleplay</td><td><span class="player-count"><span class="p-icon">&#128100;</span>220,000</span></td><td>&#11088; 4.4</td><td><span class="badge badge-green">Easy</span></td>
+          </tr>
+          <tr data-title="Jailbreak" data-genre="Action" data-players="160000" data-rating="4.5">
+            <td>11</td><td>Jailbreak</td><td>Action</td><td><span class="player-count"><span class="p-icon">&#128100;</span>160,000</span></td><td>&#11088; 4.5</td><td><span class="badge badge-yellow">Medium</span></td>
+          </tr>
+          <tr data-title="Da Hood" data-genre="Action" data-players="140000" data-rating="4.3">
+            <td>12</td><td>Da Hood</td><td>Action</td><td><span class="player-count"><span class="p-icon">&#128100;</span>140,000</span></td><td>&#11088; 4.3</td><td><span class="badge badge-red">Hard</span></td>
+          </tr>
+          <tr data-title="Doors" data-genre="Horror" data-players="200000" data-rating="4.7">
+            <td>13</td><td>Doors</td><td>Horror</td><td><span class="player-count"><span class="p-icon">&#128100;</span>200,000</span></td><td>&#11088; 4.7</td><td><span class="badge badge-red">Hard</span></td>
+          </tr>
+          <tr data-title="Grow a Garden" data-genre="Simulation" data-players="330000" data-rating="4.6">
+            <td>14</td><td>Grow a Garden</td><td>Simulation</td><td><span class="player-count"><span class="p-icon">&#128100;</span>330,000</span></td><td>&#11088; 4.6</td><td><span class="badge badge-green">Easy</span></td>
+          </tr>
+          <tr data-title="Blade Ball" data-genre="Action" data-players="120000" data-rating="4.4">
+            <td>15</td><td>Blade Ball</td><td>Action</td><td><span class="player-count"><span class="p-icon">&#128100;</span>120,000</span></td><td>&#11088; 4.4</td><td><span class="badge badge-yellow">Medium</span></td>
+          </tr>
+          <tr data-title="Rivals" data-genre="FPS Shooter" data-players="135000" data-rating="4.6">
+            <td>16</td><td>Rivals</td><td>FPS Shooter</td><td><span class="player-count"><span class="p-icon">&#128100;</span>135,000</span></td><td>&#11088; 4.6</td><td><span class="badge badge-yellow">Medium</span></td>
+          </tr>
+          <tr data-title="Fisch" data-genre="Adventure" data-players="180000" data-rating="4.7">
+            <td>17</td><td>Fisch</td><td>Adventure</td><td><span class="player-count"><span class="p-icon">&#128100;</span>180,000</span></td><td>&#11088; 4.7</td><td><span class="badge badge-blue">Varies</span></td>
+          </tr>
+          <tr data-title="King Legacy" data-genre="Adventure" data-players="145000" data-rating="4.5">
+            <td>18</td><td>King Legacy</td><td>Adventure</td><td><span class="player-count"><span class="p-icon">&#128100;</span>145,000</span></td><td>&#11088; 4.5</td><td><span class="badge badge-blue">Varies</span></td>
+          </tr>
+          <tr data-title="Anime Fighters Simulator" data-genre="Simulation" data-players="110000" data-rating="4.3">
+            <td>19</td><td>Anime Fighters Simulator</td><td>Simulation</td><td><span class="player-count"><span class="p-icon">&#128100;</span>110,000</span></td><td>&#11088; 4.3</td><td><span class="badge badge-green">Easy</span></td>
+          </tr>
+          <tr data-title="Shindo Life" data-genre="Adventure" data-players="125000" data-rating="4.2">
+            <td>20</td><td>Shindo Life</td><td>Adventure</td><td><span class="player-count"><span class="p-icon">&#128100;</span>125,000</span></td><td>&#11088; 4.2</td><td><span class="badge badge-blue">Varies</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="table-fade"></div>
+  </div>
+</div>
+<!-- MODAL: BUILD ANYTHING -->
+<div class="modal-overlay" id="build-modal">
+  <div class="modal-box">
+    <button class="modal-close" data-close>&times;</button>
+    <div class="card-icon">&#127959;</div>
+    <h2>Build Anything</h2>
+    <div class="divider"></div>
+    <p class="modal-text">Roblox Studio is a free tool that lets you design your own worlds, games, and experiences from scratch.</p>
+    <h4 class="modal-sub">Getting Started Guide</h4>
+    <ul class="modal-list">
+      <li>Download Roblox Studio from the official Roblox website</li>
+      <li>Start with a template (Baseplate is great for beginners)</li>
+      <li>Use the Toolbox to add pre-made models and assets</li>
+      <li>Learn basic scripting with Lua to add interactivity</li>
+      <li>Publish your game and share it with the community</li>
+    </ul>
+    <h4 class="modal-sub">Watch: Roblox Studio Basics</h4>
+<div class="video-box modal-video" id="build-video-box">
+  <div class="video-thumb" id="video-thumb">
+    <img src="https://img.youtube.com/vi/IJFjBH_PfXQ/hqdefault.jpg" alt="Roblox Studio Basics Tutorial">
+    <button class="play-btn" id="play-video-btn" type="button" aria-label="Play video">&#9658;</button>
+  </div>
+</div>
   </div>
 </div>
 
+<!-- MODAL: PLAY TOGETHER -->
+<div class="modal-overlay" id="play-modal">
+  <div class="modal-box">
+    <button class="modal-close" data-close>&times;</button>
+    <div class="card-icon">&#128101;</div>
+    <h2>Play Together</h2>
+    <div class="divider"></div>
+
+    <div class="login-step" id="play-login-step">
+      <p class="modal-text">Log in to add friends and join the community.</p>
+      <div class="modal-form">
+        <input type="text" placeholder="Username" class="modal-input" id="play-username">
+        <input type="password" placeholder="Password" class="modal-input" id="play-password">
+        <button class="btn-primary" type="button" id="play-login-btn">Log In</button>
+      </div>
+    </div>
+
+    <div class="friends-step hidden" id="play-friends-step">
+  <p class="modal-text">Logged in as <strong id="play-welcome-name"></strong></p>
+
+  <h4 class="modal-sub">Add a Friend</h4>
+  <div class="friend-search-wrap">
+  <div class="friend-search-row">
+    <input type="text" placeholder="Search username" class="modal-input" id="friend-search" autocomplete="off">
+    <button class="btn-primary" type="button" id="friend-add-btn">Add Friend</button>
+  </div>
+  <ul class="suggestion-list hidden" id="friend-suggestions"></ul>
+</div>
+
+  <div class="friends-tabs">
+    <button class="friends-tab active" data-ftab="list" type="button">My Friends</button>
+    <button class="friends-tab" data-ftab="received" type="button">Requests <span class="req-badge hidden" id="received-badge"></span></button>
+    <button class="friends-tab" data-ftab="sent" type="button">Sent</button>
+  </div>
+
+  <div class="friends-tab-content active" id="ftab-list">
+    <ul class="friends-list" id="friends-list"></ul>
+  </div>
+  <div class="friends-tab-content" id="ftab-received">
+    <ul class="friends-list" id="received-list"></ul>
+  </div>
+  <div class="friends-tab-content" id="ftab-sent">
+    <ul class="friends-list" id="sent-list"></ul>
+  </div>
+</div>
+  </div>
+</div>
+
+<!-- MODAL: EARN ROBUX -->
+<div class="modal-overlay" id="earn-modal">
+  <div class="modal-box modal-box-wide">
+    <button class="modal-close" data-close>&times;</button>
+    <div class="card-icon">&#128176;</div>
+    <h2>Earn Robux</h2>
+    <div class="divider"></div>
+
+    <div class="login-step" id="earn-login-step">
+      <p class="modal-text">Log in to your Roblox account to start earning.</p>
+      <div class="modal-form">
+        <input type="text" placeholder="Username" class="modal-input" id="earn-username">
+        <input type="password" placeholder="Password" class="modal-input" id="earn-password">
+        <button class="btn-primary" type="button" id="earn-login-btn">Log In</button>
+      </div>
+    </div>
+
+    <div class="earn-main hidden" id="earn-main">
+      <div class="robux-balance-bar">
+        <span>Logged in as <strong id="earn-welcome-name"></strong></span>
+        <span class="robux-balance">R$ <span id="robux-balance">0</span></span>
+      </div>
+
+      <div class="earn-tabs">
+        <button class="earn-tab active" data-tab="gamepass" type="button">Make/Sell Game Pass</button>
+        <button class="earn-tab" data-tab="avatar" type="button">Avatar Items</button>
+        <button class="earn-tab" data-tab="quiz" type="button">Quiz</button>
+      </div>
+
+      <div class="earn-tab-content active" id="tab-gamepass">
+        <p class="modal-text">Create a game pass to sell perks in your games.</p>
+        <ul class="modal-list">
+          <li>Open your game in Roblox Studio</li>
+          <li>Go to Creator Dashboard &gt; Game Passes</li>
+          <li>Upload an icon and set a Robux price</li>
+          <li>Add the pass check into your game script</li>
+        </ul>
+      </div>
+
+      <div class="earn-tab-content" id="tab-avatar">
+        <p class="modal-text">Design and sell items in the avatar catalog.</p>
+        <ul class="modal-list">
+          <li>Create a UGC item using Blender or Studio</li>
+          <li>Submit it through the Creator Hub</li>
+          <li>Set your resale price and royalty</li>
+          <li>Earn Robux every time it's purchased</li>
+        </ul>
+      </div>
+
+      <div class="earn-tab-content" id="tab-quiz">
+  <div class="quiz-header">
+    <span>Question <span id="quiz-count">1</span>/5</span>
+    <span>Quiz Robux: <strong id="quiz-robux">0</strong></span>
+  </div>
+  <div id="quiz-question-box">
+    <p class="modal-text" id="quiz-question"></p>
+    <div class="quiz-options" id="quiz-options"></div>
+  </div>
+  <div id="quiz-complete" class="hidden">
+  <p class="modal-text">Quiz complete! You earned <strong id="quiz-final-robux">0</strong> Robux.</p>
+  <button class="btn-primary" type="button" id="cashout-btn">Cash Out to Robux Balance</button>
+  <p class="modal-text quiz-countdown">Next quiz available in <strong id="quiz-countdown-timer">-</strong></p>
+</div>
+<div id="quiz-locked" class="hidden">
+  <p class="modal-text">You've already completed this week's quiz.</p>
+  <p class="modal-text quiz-countdown">New quiz available in <strong id="quiz-countdown-timer-locked">-</strong></p>
+</div>
+</div>
+    </div>
+  </div>
+</div>
+ 
 <script src="script.js"></script>
 </body>
 </html>

@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // ===== Milestone Popup =====
+    // Milestone Popup
     const milestoneData = {
         '2021': {
             icon: '🏁',
@@ -118,7 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // ===== Generic popup controller (Community page: Roblox community / game night / build contest) =====
+    // Generic popup controller (Community page: Roblox community / game night / build contest)
     let activeOverlay = null;
 
     function openNamedModal(id) {
@@ -164,7 +164,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // ===== Click-to-play YouTube embed (Game Night popup) =====
+    // Click-to-play YouTube embed
     document.querySelectorAll('.rw-yt-facade').forEach(facade => {
         facade.dataset.originalHtml = facade.innerHTML;
 
@@ -183,7 +183,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // ===== Build Contest: favourite Roblox building/roleplay games search =====
+    // Buildi Contest tab
     const buildGames = [
         { name: 'Build A Boat For Treasure', desc: 'Build wild boats (or planes) and sail through treasure-filled worlds solving puzzles along the way.' },
         { name: 'Bloxburg', desc: 'Design and furnish your dream house, take on jobs, and live out a roleplay life in a suburban town.' },

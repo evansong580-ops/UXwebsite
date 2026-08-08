@@ -124,7 +124,7 @@ nav {
 .section-sub { color: var(--rb-muted); margin-bottom: 2rem; font-size: 0.95rem; }
 .divider { width: 50px; height: 4px; background: var(--rb-accent); border-radius: 2px; margin: 0.5rem 0 1.5rem; }
 
-/* stats "why roblox" section */
+/* stats "why roblox" section (index.html only) */
 .stats-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1rem; margin-bottom: 2.5rem; }
 .stat-card {
   background: var(--rb-card); border-radius: 10px; padding: 1.2rem;
@@ -201,7 +201,7 @@ nav {
 }
 .play-btn:hover { background: var(--rb-accent); }
 
-/* roblox table (top) */
+/* roblox table (top, index.html games table) */
 .table-controls { margin-bottom: 1rem; }
 .table-search { max-width: 280px; }
 
@@ -262,7 +262,7 @@ tbody td:first-child { color: #fff; font-weight: 600; }
 }
 .table-scroll-wrap.at-bottom .table-fade { opacity: 0; }
 
-/* modals for build anything, play together, earn robux  */
+/* modals (index.html) for build anything, play together, earn robux  */
 .modal-overlay {
   display: none;
   position: fixed;
@@ -366,7 +366,7 @@ tbody td:first-child { color: #fff; font-weight: 600; }
 }
 .quiz-btn:hover { background: var(--rb-accent); }
 
-/* modal for login, tab, quiz, friends */
+/* modal for login, tab, quiz, friends (index.html) */
 .hidden { display: none !important; }
 
 .modal-box-wide { max-width: 560px; }
@@ -470,28 +470,462 @@ tbody td:first-child { color: #fff; font-weight: 600; }
 .quiz-countdown { color: var(--rb-accent); font-weight: 600; margin-top: 0.4rem; }
 
 
-/* BUILDS GALLERY (builds.html) */
-.builds-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.2rem; }
-.build-card {
-  background: var(--rb-card); border-radius: 12px; overflow: hidden;
-  border: 1px solid rgba(233,69,96,0.15); transition: transform 0.2s;
-  cursor: pointer;
+/* ============================================================
+   BUILDS PAGE (builds.html) — every selector below is prefixed
+   with "b-" so it is fully isolated from index.html's classes
+   and can never clash or be accidentally overridden by it.
+   ============================================================ */
+
+/* stats row at top of My Builds */
+.b-stats-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1rem; margin-bottom: 2.5rem; }
+.b-stat-card {
+  background: var(--rb-card); border-radius: 10px; padding: 1.2rem;
+  text-align: center; border: 1px solid rgba(233,69,96,0.2);
+  opacity: 0; transform: translateY(20px);
+  animation: bFadeUp 0.6s ease forwards;
+  transition: box-shadow 0.25s, transform 0.25s;
 }
-.build-card:hover { transform: translateY(-4px); }
-.build-thumb {
+.b-stat-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(233,69,96,0.25);
+}
+.b-stat-card:nth-child(2) { animation-delay: 0.1s; }
+.b-stat-card:nth-child(3) { animation-delay: 0.2s; }
+.b-stat-card:nth-child(4) { animation-delay: 0.3s; }
+.b-num { font-size: 2rem; font-weight: 900; color: var(--rb-accent); }
+.b-label { font-size: 0.8rem; color: var(--rb-muted); margin-top: 4px; }
+
+@keyframes bFadeUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* builds gallery grid */
+.b-builds-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.2rem; }
+.b-build-card {
+  background: var(--rb-card); border-radius: 12px; overflow: hidden;
+  border: 1px solid rgba(233,69,96,0.15); transition: transform 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+  opacity: 0; transform: translateY(20px);
+  animation: bFadeUp 0.5s ease forwards;
+}
+.b-build-card:nth-child(2) { animation-delay: 0.04s; }
+.b-build-card:nth-child(3) { animation-delay: 0.08s; }
+.b-build-card:nth-child(4) { animation-delay: 0.12s; }
+.b-build-card:nth-child(5) { animation-delay: 0.16s; }
+.b-build-card:nth-child(6) { animation-delay: 0.20s; }
+.b-build-card:nth-child(7) { animation-delay: 0.24s; }
+.b-build-card:nth-child(8) { animation-delay: 0.28s; }
+.b-build-card:nth-child(9) { animation-delay: 0.32s; }
+.b-build-card:nth-child(10) { animation-delay: 0.36s; }
+.b-build-card:nth-child(11) { animation-delay: 0.40s; }
+.b-build-card:nth-child(12) { animation-delay: 0.44s; }
+.b-build-card:hover { transform: translateY(-4px); box-shadow: 0 12px 26px rgba(0,0,0,0.4); }
+
+.b-build-thumb {
   height: 140px; display: flex; align-items: center; justify-content: center;
   font-size: 4rem; position: relative; overflow: hidden;
+  filter: drop-shadow(0 6px 10px rgba(0,0,0,0.35));
 }
-.build-thumb .overlay {
+.b-build-overlay {
   position: absolute; inset: 0; background: rgba(0,0,0,0.0);
   transition: background 0.2s; display: flex; align-items: center; justify-content: center;
-  font-size: 0.85rem; font-weight: 600; opacity: 0;
+  font-size: 0.85rem; font-weight: 700; letter-spacing: 0.3px; opacity: 0; color: #fff;
 }
-.build-card:hover .overlay { background: rgba(0,0,0,0.5); opacity: 1; }
-.build-info { padding: 1rem; }
-.build-info h4 { font-size: 0.95rem; font-weight: 700; margin-bottom: 4px; }
-.build-info p { font-size: 0.8rem; color: var(--rb-muted); }
-.build-meta { display: flex; gap: 12px; margin-top: 8px; font-size: 0.78rem; color: var(--rb-muted); }
+.b-build-card:hover .b-build-overlay { background: rgba(0,0,0,0.55); opacity: 1; }
+.b-build-info { padding: 1rem; }
+.b-build-info h4 { font-size: 0.95rem; font-weight: 700; margin-bottom: 4px; }
+.b-build-info p { font-size: 0.8rem; color: var(--rb-muted); }
+.b-build-meta { display: flex; gap: 12px; margin-top: 8px; font-size: 0.78rem; color: var(--rb-muted); flex-wrap: wrap; }
+
+/* build tools grid (cards) */
+.b-tools-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.2rem;
+}
+.b-tool-card {
+  background: var(--rb-card);
+  border-radius: 12px;
+  padding: 1.2rem;
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  border: 1px solid rgba(233,69,96,0.15);
+  opacity: 0;
+  transform: translateY(20px);
+  animation: bFadeUp 0.5s ease forwards;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.b-tool-card:nth-child(2) { animation-delay: 0.06s; }
+.b-tool-card:nth-child(3) { animation-delay: 0.12s; }
+.b-tool-card:nth-child(4) { animation-delay: 0.18s; }
+.b-tool-card:nth-child(5) { animation-delay: 0.24s; }
+.b-tool-card:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(0,0,0,0.35); }
+
+.b-tool-icon {
+  font-size: 1.8rem;
+  width: 52px; height: 52px;
+  flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(233,69,96,0.12);
+  border-radius: 10px;
+}
+
+.b-tool-info h4 { font-size: 1rem; font-weight: 700; margin-bottom: 2px; }
+.b-tool-info p { font-size: 0.82rem; color: var(--rb-muted); margin-bottom: 0.7rem; }
+
+.b-tool-skill { display: flex; flex-direction: column; align-items: flex-start; gap: 6px; margin-bottom: 0.5rem; }
+.b-skill-bar { width: 100px; height: 6px; border-radius: 4px; background: rgba(255,255,255,0.08); overflow: hidden; }
+.b-skill-bar-fill { height: 100%; border-radius: 4px; }
+.b-skill-expert .b-skill-bar-fill { width: 100%; background: #48c78e; }
+.b-skill-intermediate .b-skill-bar-fill { width: 65%; background: #3498db; }
+.b-skill-beginner .b-skill-bar-fill { width: 30%; background: #f5a623; }
+
+.b-tool-used { font-size: 0.76rem; color: var(--rb-muted); }
+
+.b-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+.b-badge-green { background: rgba(72,199,142,0.18); color: #48c78e; }
+.b-badge-blue  { background: rgba(52,152,219,0.18); color: #3498db; }
+.b-badge-yellow{ background: rgba(245,166,35,0.18); color: #f5a623; }
+
+/* guide link box */
+.b-guide-box {
+  margin-top: 3rem;
+  background: linear-gradient(135deg, rgba(233,69,96,0.12), rgba(52,152,219,0.08));
+  border: 1px solid rgba(233,69,96,0.25);
+  border-radius: 14px;
+  padding: 1.4rem 1.6rem;
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+}
+.b-guide-icon {
+  font-size: 2rem;
+  width: 56px; height: 56px;
+  flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(233,69,96,0.15);
+  border-radius: 12px;
+}
+.b-guide-text { flex: 1; min-width: 200px; }
+.b-guide-text h4 { font-size: 1.05rem; font-weight: 700; margin-bottom: 4px; }
+.b-guide-text p { font-size: 0.85rem; color: var(--rb-muted); line-height: 1.5; }
+.b-guide-link {
+  background: transparent;
+  color: var(--rb-accent);
+  border: 1px solid var(--rb-accent);
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background 0.2s, color 0.2s;
+}
+.b-guide-link:hover { background: var(--rb-accent); color: #fff; }
+
+/* request a build form */
+.b-request-form {
+  background: var(--rb-card);
+  border: 1px solid rgba(233,69,96,0.2);
+  border-radius: 14px;
+  padding: 1.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+.b-form-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.2rem;
+}
+.b-form-group { display: flex; flex-direction: column; gap: 6px; }
+.b-form-label { font-size: 0.85rem; font-weight: 600; color: var(--rb-light); }
+.b-form-input {
+  background: var(--rb-dark);
+  border: 1px solid rgba(233,69,96,0.3);
+  color: var(--rb-light);
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-family: inherit;
+}
+.b-form-input:focus { outline: none; border-color: var(--rb-accent); }
+.b-form-textarea { resize: vertical; min-height: 90px; }
+select.b-form-input { cursor: pointer; }
+.b-form-submit { align-self: flex-start; }
+
+/* form response popup (small confirmation, shown on submit) */
+.b-form-modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 10, 20, 0.75);
+  backdrop-filter: blur(4px);
+  z-index: 210;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+.b-form-modal-overlay.b-active {
+  display: flex;
+  animation: bModalFadeIn 0.25s ease;
+}
+.b-form-modal-box {
+  background: linear-gradient(160deg, var(--rb-mid), var(--rb-card));
+  border: 1px solid rgba(233,69,96,0.3);
+  border-radius: 16px;
+  max-width: 380px;
+  width: 100%;
+  max-height: 80vh;
+  overflow-y: auto;
+  padding: 1.8rem;
+  position: relative;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  animation: bModalPop 0.25s ease;
+  text-align: center;
+}
+.b-form-check {
+  width: 48px; height: 48px;
+  margin: 0 auto 0.8rem;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(72,199,142,0.18); color: #48c78e;
+  border-radius: 50%; font-size: 1.3rem; font-weight: 800;
+}
+.b-form-modal-box h3 { font-size: 1.15rem; margin-bottom: 0.3rem; }
+.b-form-modal-box .b-form-sub { font-size: 0.85rem; color: var(--rb-muted); margin-bottom: 1.1rem; }
+.b-form-summary { text-align: left; display: flex; flex-direction: column; gap: 0.6rem; }
+.b-form-summary-row { font-size: 0.85rem; }
+.b-form-summary-row .b-fs-label { color: var(--rb-muted); display: block; font-size: 0.72rem; margin-bottom: 1px; }
+.b-form-summary-row .b-fs-value { color: #fff; font-weight: 600; white-space: pre-wrap; }
+
+/* response page (response.html) */
+.b-response-card {
+  background: var(--rb-card);
+  border: 1px solid rgba(233,69,96,0.2);
+  border-radius: 14px;
+  padding: 1.8rem;
+  margin-bottom: 2rem;
+}
+.b-response-banner {
+  display: flex; align-items: center; gap: 1rem;
+  padding-bottom: 1.2rem;
+  margin-bottom: 1.2rem;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.b-response-check {
+  width: 44px; height: 44px; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(72,199,142,0.18); color: #48c78e;
+  border-radius: 50%; font-size: 1.2rem; font-weight: 800;
+}
+.b-response-banner h3 { font-size: 1.2rem; margin-bottom: 2px; }
+.b-response-banner p { font-size: 0.88rem; color: var(--rb-muted); }
+
+.b-response-row {
+  display: flex; gap: 0.9rem; align-items: flex-start;
+  padding: 0.7rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+.b-response-row:last-child { border-bottom: none; }
+.b-response-row-icon { font-size: 1.2rem; width: 28px; flex-shrink: 0; }
+.b-response-row-label { font-size: 0.76rem; color: var(--rb-muted); margin-bottom: 2px; }
+.b-response-row-value { font-size: 0.95rem; color: #fff; font-weight: 600; white-space: pre-wrap; }
+
+.b-response-empty { text-align: center; padding: 1.5rem 1rem; }
+.b-response-empty-icon { font-size: 2.4rem; margin-bottom: 0.6rem; }
+.b-response-empty h3 { margin-bottom: 6px; }
+.b-response-empty p { color: var(--rb-muted); font-size: 0.9rem; }
+
+.b-response-actions { text-align: center; }
+
+/* build details modal */
+.b-modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 10, 20, 0.75);
+  backdrop-filter: blur(4px);
+  z-index: 200;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+.b-modal-overlay.b-active {
+  display: flex;
+  animation: bModalFadeIn 0.25s ease;
+}
+@keyframes bModalFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.b-modal-box {
+  background: linear-gradient(160deg, var(--rb-mid), var(--rb-card));
+  border: 1px solid rgba(233,69,96,0.3);
+  border-radius: 16px;
+  max-width: 480px;
+  width: 100%;
+  max-height: 85vh;
+  overflow-y: auto;
+  padding: 2rem;
+  position: relative;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  animation: bModalPop 0.25s ease;
+}
+@keyframes bModalPop {
+  from { transform: scale(0.92); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+.b-modal-close {
+  position: absolute;
+  top: 14px; right: 14px;
+  background: rgba(233,69,96,0.15);
+  color: var(--rb-light);
+  border: none;
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.b-modal-close:hover { background: var(--rb-accent); }
+
+/* back button: floats over the banner image, top-left */
+.b-back-btn {
+  position: absolute;
+  top: 12px; left: 12px;
+  z-index: 2;
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  background: rgba(10,10,20,0.55);
+  backdrop-filter: blur(2px);
+  border: none;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: background 0.2s;
+}
+.b-back-btn:hover { background: var(--rb-accent); }
+
+/* banner: gradient thumbnail + genre chip, like a Roblox game page header image */
+.b-modal-banner {
+  height: 140px;
+  margin: -2rem -2rem 1.2rem;
+  display: flex; align-items: center; justify-content: center;
+  position: relative;
+  border-radius: 16px 16px 0 0;
+  overflow: hidden;
+}
+.b-modal-banner-icon { font-size: 3.2rem; filter: drop-shadow(0 6px 10px rgba(0,0,0,0.35)); }
+.b-modal-genre-chip {
+  position: absolute; top: 12px; right: 12px;
+  background: rgba(10,10,20,0.55);
+  color: #fff; font-size: 0.7rem; font-weight: 700;
+  padding: 4px 10px; border-radius: 20px;
+  backdrop-filter: blur(2px);
+}
+
+/* title + creator byline */
+.b-modal-box h2 { font-size: 1.4rem; margin-bottom: 0.15rem; }
+.b-modal-creator { color: var(--rb-muted); font-size: 0.82rem; margin-bottom: 1rem; }
+.b-modal-creator span { color: var(--rb-accent); font-weight: 600; }
+
+/* Play button, styled after Roblox's green play CTA — now a real link */
+.b-play-btn {
+  width: 100%;
+  background: #00a651;
+  color: #fff;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+  text-decoration: none;
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  margin-bottom: 0.4rem;
+  transition: background 0.2s, transform 0.15s;
+}
+.b-play-btn:hover { background: #00c765; transform: translateY(-1px); }
+.b-play-btn:active { transform: translateY(0); }
+.b-play-note {
+  text-align: center;
+  font-size: 0.72rem;
+  color: var(--rb-muted);
+  margin-bottom: 1.2rem;
+}
+
+/* stat bar: Playing | Like% | Favorites, divided like Roblox's game page */
+.b-modal-statbar {
+  display: flex;
+  align-items: stretch;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(233,69,96,0.15);
+  border-radius: 10px;
+  padding: 0.8rem 0.4rem;
+  margin-bottom: 1rem;
+}
+.b-modal-stat {
+  flex: 1;
+  text-align: center;
+  padding: 0 0.4rem;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 4px;
+}
+.b-stat-divider { width: 1px; background: rgba(255,255,255,0.1); margin: 2px 0; }
+.b-modal-stat-num { font-size: 0.95rem; font-weight: 800; color: #fff; }
+.b-modal-stat-label { font-size: 0.68rem; color: var(--rb-muted); }
+
+/* like bar, thumbs-up % fill (replaces star rating, matches current Roblox UI) */
+.b-like-bar {
+  width: 100%; max-width: 70px;
+  height: 6px; border-radius: 4px;
+  background: rgba(233,69,96,0.35);
+  overflow: hidden;
+}
+.b-like-bar-fill {
+  height: 100%;
+  background: #00a651;
+  border-radius: 4px 0 0 4px;
+}
+
+.b-modal-text { color: var(--rb-muted); margin: 0.8rem 0; line-height: 1.6; font-size: 0.92rem; }
+
+/* meta footer: created / updated / server size */
+.b-modal-meta {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px 16px;
+  margin-top: 1.2rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+.b-modal-meta-item { font-size: 0.76rem; color: var(--rb-muted); }
+.b-modal-meta-item span { display: block; color: #fff; font-weight: 600; font-size: 0.82rem; margin-top: 1px; }
+
+/* build thumbnail gradients (12 unique, b- prefixed) */
+.b-bg1  { background: linear-gradient(135deg, #1a1a2e, #e94560); }
+.b-bg2  { background: linear-gradient(135deg, #0f3460, #533483); }
+.b-bg3  { background: linear-gradient(135deg, #16213e, #0f9b58); }
+.b-bg4  { background: linear-gradient(135deg, #e94560, #f5a623); }
+.b-bg5  { background: linear-gradient(135deg, #533483, #3498db); }
+.b-bg6  { background: linear-gradient(135deg, #0f9b58, #16213e); }
+.b-bg7  { background: linear-gradient(135deg, #2d4a1e, #3e6b1f); }
+.b-bg8  { background: linear-gradient(135deg, #c0392b, #e94560); }
+.b-bg9  { background: linear-gradient(135deg, #f5a623, #e94560); }
+.b-bg10 { background: linear-gradient(135deg, #8e44ad, #e94560); }
+.b-bg11 { background: linear-gradient(135deg, #16213e, #3498db); }
+.b-bg12 { background: linear-gradient(135deg, #1a1a2e, #533483); }
 
 /* FOOTER (not present on index.html) */
 footer {
@@ -500,11 +934,3 @@ footer {
   border-top: 2px solid rgba(233,69,96,0.2); margin-top: 3rem;
 }
 footer a { color: var(--rb-accent); text-decoration: none; }
-
-/* BG PATTERNS (utility classes, not referenced on index.html) */
-.bg1 { background: linear-gradient(135deg, #1a1a2e, #e94560); }
-.bg2 { background: linear-gradient(135deg, #0f3460, #533483); }
-.bg3 { background: linear-gradient(135deg, #16213e, #0f9b58); }
-.bg4 { background: linear-gradient(135deg, #e94560, #f5a623); }
-.bg5 { background: linear-gradient(135deg, #533483, #3498db); }
-.bg6 { background: linear-gradient(135deg, #0f9b58, #16213e); }

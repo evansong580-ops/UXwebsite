@@ -8,11 +8,15 @@
 </head>
 <body>
 
-<!-- NAV BAR (Paste this into every HTML file) -->
+<!-- NAV BAR (matches index.html) -->
 <nav>
   <div class="nav-logo" onclick="location.href='index.html'">
-    &#9632;<span>RobloxWorld</span>
-  </div>
+  <svg width="28" height="28" viewBox="0 0 28 28" class="logo-mark">
+    <rect x="2" y="2" width="24" height="24" rx="6" fill="var(--rb-accent)"/>
+    <path d="M9 14l5-5 5 5-5 5-5-5z" fill="#fff"/>
+  </svg>
+  <span>RobloxWorld</span>
+</div>
   <div class="nav-links">
     <a href="index.html" class="nav-btn">Home</a>
     <a href="builds.html" class="nav-btn">My Builds</a>
@@ -28,106 +32,320 @@
 </div>
 
 <div class="section">
-  <div class="stats-row">
-    <div class="stat-card"><div class="num">12</div><div class="label">Total Builds</div></div>
-    <div class="stat-card"><div class="num">8.4K</div><div class="label">Total Visits</div></div>
-    <div class="stat-card"><div class="num">96%</div><div class="label">Positive Ratings</div></div>
-    <div class="stat-card"><div class="num">3yrs</div><div class="label">Building Experience</div></div>
+  <!-- Builds page stats (b- prefixed, isolated from index.html's .stats-row) -->
+  <div class="b-stats-row">
+    <div class="b-stat-card"><div class="b-num">12</div><div class="b-label">Total Builds</div></div>
+    <div class="b-stat-card"><div class="b-num">21.9K</div><div class="b-label">Total Visits</div></div>
+    <div class="b-stat-card"><div class="b-num">95%</div><div class="b-label">Positive Ratings</div></div>
+    <div class="b-stat-card"><div class="b-num">3yrs</div><div class="b-label">Building Experience</div></div>
   </div>
 
   <h2 class="section-title">Featured <span class="accent">Builds</span></h2>
   <div class="divider"></div>
   <p class="section-sub">Click on any build to learn more about the project.</p>
 
-  <div class="builds-grid">
-    <div class="build-card">
-      <div class="build-thumb bg1">
+  <!-- Builds grid (b- prefixed, isolated from index.html) -->
+  <div class="b-builds-grid" id="b-builds-grid">
+
+    <div class="b-build-card" data-b-build="1">
+      <div class="b-build-thumb b-bg1">
         <span>&#127968;</span>
-        <div class="overlay">View Build</div>
+        <div class="b-build-overlay">View Build</div>
       </div>
-      <div class="build-info">
+      <div class="b-build-info">
         <h4>Sky City</h4>
         <p>A floating city above the clouds with glass bridges and sky trains.</p>
-        <div class="build-meta"><span>&#128065; 2.1K visits</span><span>&#11088; 4.9</span><span>Roleplay</span></div>
+        <div class="b-build-meta"><span>&#128065; 2.1K visits</span><span>&#11088; 4.9</span><span>Roleplay</span></div>
       </div>
     </div>
-    <div class="build-card">
-      <div class="build-thumb bg2">
-        <span>&#128165;</span>
-        <div class="overlay">View Build</div>
+
+    <div class="b-build-card" data-b-build="2">
+      <div class="b-build-thumb b-bg2">
+        <span>&#129399;</span>
+        <div class="b-build-overlay">View Build</div>
       </div>
-      <div class="build-info">
+      <div class="b-build-info">
         <h4>Ninja Obby</h4>
         <p>100-stage parkour challenge inspired by ninja warrior courses.</p>
-        <div class="build-meta"><span>&#128065; 1.8K visits</span><span>&#11088; 4.7</span><span>Obby</span></div>
+        <div class="b-build-meta"><span>&#128065; 1.8K visits</span><span>&#11088; 4.7</span><span>Obby</span></div>
       </div>
     </div>
-    <div class="build-card">
-      <div class="build-thumb bg3">
-        <span>&#127807;</span>
-        <div class="overlay">View Build</div>
+
+    <div class="b-build-card" data-b-build="3">
+      <div class="b-build-thumb b-bg3">
+        <span>&#127796;</span>
+        <div class="b-build-overlay">View Build</div>
       </div>
-      <div class="build-info">
+      <div class="b-build-info">
         <h4>Jungle Tycoon</h4>
         <p>Build your own jungle empire and defend it from raiders.</p>
-        <div class="build-meta"><span>&#128065; 1.5K visits</span><span>&#11088; 4.6</span><span>Tycoon</span></div>
+        <div class="b-build-meta"><span>&#128065; 1.5K visits</span><span>&#11088; 4.6</span><span>Tycoon</span></div>
       </div>
     </div>
-    <div class="build-card">
-      <div class="build-thumb bg4">
-        <span>&#127866;</span>
-        <div class="overlay">View Build</div>
+
+    <div class="b-build-card" data-b-build="4">
+      <div class="b-build-thumb b-bg4">
+        <span>&#9749;</span>
+        <div class="b-build-overlay">View Build</div>
       </div>
-      <div class="build-info">
+      <div class="b-build-info">
         <h4>Café Simulator</h4>
         <p>Run your own café, hire staff, and serve customers in this chill sim.</p>
-        <div class="build-meta"><span>&#128065; 940 visits</span><span>&#11088; 4.8</span><span>Simulation</span></div>
+        <div class="b-build-meta"><span>&#128065; 940 visits</span><span>&#11088; 4.8</span><span>Simulation</span></div>
       </div>
     </div>
-    <div class="build-card">
-      <div class="build-thumb bg5">
-        <span>&#128737;</span>
-        <div class="overlay">View Build</div>
+
+    <div class="b-build-card" data-b-build="5">
+      <div class="b-build-thumb b-bg5">
+        <span>&#9876;&#65039;</span>
+        <div class="b-build-overlay">View Build</div>
       </div>
-      <div class="build-info">
+      <div class="b-build-info">
         <h4>Battle Arena X</h4>
         <p>Fast-paced PvP arena with 5 unique maps and weapon loadouts.</p>
-        <div class="build-meta"><span>&#128065; 1.2K visits</span><span>&#11088; 4.5</span><span>PvP</span></div>
+        <div class="b-build-meta"><span>&#128065; 1.2K visits</span><span>&#11088; 4.5</span><span>PvP</span></div>
       </div>
     </div>
-    <div class="build-card">
-      <div class="build-thumb bg6">
-        <span>&#127756;</span>
-        <div class="overlay">View Build</div>
+
+    <div class="b-build-card" data-b-build="6">
+      <div class="b-build-thumb b-bg6">
+        <span>&#127754;</span>
+        <div class="b-build-overlay">View Build</div>
       </div>
-      <div class="build-info">
+      <div class="b-build-info">
         <h4>Deep Ocean World</h4>
         <p>Underwater exploration game with hidden caves and treasure hunts.</p>
-        <div class="build-meta"><span>&#128065; 870 visits</span><span>&#11088; 4.7</span><span>Adventure</span></div>
+        <div class="b-build-meta"><span>&#128065; 870 visits</span><span>&#11088; 4.7</span><span>Adventure</span></div>
       </div>
     </div>
+
+    <div class="b-build-card" data-b-build="7">
+      <div class="b-build-thumb b-bg7">
+        <span>&#129497;</span>
+        <div class="b-build-overlay">View Build</div>
+      </div>
+      <div class="b-build-info">
+        <h4>Zombie Outbreak</h4>
+        <p>Survive endless waves of zombies and fortify your base with friends.</p>
+        <div class="b-build-meta"><span>&#128065; 3.2K visits</span><span>&#11088; 4.8</span><span>Survival</span></div>
+      </div>
+    </div>
+
+    <div class="b-build-card" data-b-build="8">
+      <div class="b-build-thumb b-bg8">
+        <span>&#127950;</span>
+        <div class="b-build-overlay">View Build</div>
+      </div>
+      <div class="b-build-info">
+        <h4>Speed Run Kingdom</h4>
+        <p>Race through checkpoints across 20 tracks with drift-based cars.</p>
+        <div class="b-build-meta"><span>&#128065; 2.6K visits</span><span>&#11088; 4.6</span><span>Racing</span></div>
+      </div>
+    </div>
+
+    <div class="b-build-card" data-b-build="9">
+      <div class="b-build-thumb b-bg9">
+        <span>&#128062;</span>
+        <div class="b-build-overlay">View Build</div>
+      </div>
+      <div class="b-build-info">
+        <h4>Pet Adoption Paradise</h4>
+        <p>Hatch, raise, and trade collectible pets in a cozy open world.</p>
+        <div class="b-build-meta"><span>&#128065; 4.1K visits</span><span>&#11088; 4.9</span><span>Simulation</span></div>
+      </div>
+    </div>
+
+    <div class="b-build-card" data-b-build="10">
+      <div class="b-build-thumb b-bg10">
+        <span>&#128084;</span>
+        <div class="b-build-overlay">View Build</div>
+      </div>
+      <div class="b-build-info">
+        <h4>Mystic Fashion Runway</h4>
+        <p>Design outfits, walk the runway, and compete in style showdowns.</p>
+        <div class="b-build-meta"><span>&#128065; 610 visits</span><span>&#11088; 4.4</span><span>Roleplay</span></div>
+      </div>
+    </div>
+
+    <div class="b-build-card" data-b-build="11">
+      <div class="b-build-thumb b-bg11">
+        <span>&#128737;&#65039;</span>
+        <div class="b-build-overlay">View Build</div>
+      </div>
+      <div class="b-build-info">
+        <h4>Block Wars Royale</h4>
+        <p>Last block standing — loot, build, and battle across a shrinking map.</p>
+        <div class="b-build-meta"><span>&#128065; 1.9K visits</span><span>&#11088; 4.7</span><span>Battle Royale</span></div>
+      </div>
+    </div>
+
+    <div class="b-build-card" data-b-build="12">
+      <div class="b-build-thumb b-bg12">
+        <span>&#127890;</span>
+        <div class="b-build-overlay">View Build</div>
+      </div>
+      <div class="b-build-info">
+        <h4>Haunted Mansion Escape</h4>
+        <p>Solve puzzles and escape a haunted mansion before it's too late.</p>
+        <div class="b-build-meta"><span>&#128065; 1.1K visits</span><span>&#11088; 4.5</span><span>Horror</span></div>
+      </div>
+    </div>
+
   </div>
 
-  <!-- BUILD TOOLS TABLE -->
+  <!-- BUILD TOOLS GRID (b- prefixed, isolated from index.html) -->
   <h2 class="section-title" style="margin-top:3rem;">Build <span class="accent">Tools I Use</span></h2>
   <div class="divider"></div>
-  <div class="table-wrap">
-    <table>
-      <thead>
-        <tr><th>Tool</th><th>Purpose</th><th>Skill Level</th><th>Used In</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>Roblox Studio</td><td>Main building environment</td><td><span class="badge badge-green">Expert</span></td><td>All builds</td></tr>
-        <tr><td>Lua Scripting</td><td>Game logic & interactivity</td><td><span class="badge badge-blue">Intermediate</span></td><td>6 builds</td></tr>
-        <tr><td>Blender</td><td>Custom 3D mesh models</td><td><span class="badge badge-yellow">Beginner</span></td><td>3 builds</td></tr>
-        <tr><td>PartDesigner</td><td>Detailed part creation</td><td><span class="badge badge-blue">Intermediate</span></td><td>5 builds</td></tr>
-        <tr><td>Moon Animator</td><td>Custom character animations</td><td><span class="badge badge-yellow">Beginner</span></td><td>2 builds</td></tr>
-      </tbody>
-    </table>
+  <div class="b-tools-grid">
+
+    <div class="b-tool-card">
+      <div class="b-tool-icon">&#128736;&#65039;</div>
+      <div class="b-tool-info">
+        <h4>Roblox Studio</h4>
+        <p>Main building environment</p>
+        <div class="b-tool-skill b-skill-expert">
+          <div class="b-skill-bar"><div class="b-skill-bar-fill"></div></div>
+          <span class="b-badge b-badge-green">Expert</span>
+        </div>
+        <div class="b-tool-used">Used in all 12 builds</div>
+      </div>
+    </div>
+
+    <div class="b-tool-card">
+      <div class="b-tool-icon">&#128187;</div>
+      <div class="b-tool-info">
+        <h4>Lua Scripting</h4>
+        <p>Game logic &amp; interactivity</p>
+        <div class="b-tool-skill b-skill-intermediate">
+          <div class="b-skill-bar"><div class="b-skill-bar-fill"></div></div>
+          <span class="b-badge b-badge-blue">Intermediate</span>
+        </div>
+        <div class="b-tool-used">Used in 8 builds</div>
+      </div>
+    </div>
+
+    <div class="b-tool-card">
+      <div class="b-tool-icon">&#127922;</div>
+      <div class="b-tool-info">
+        <h4>Blender</h4>
+        <p>Custom 3D mesh models</p>
+        <div class="b-tool-skill b-skill-beginner">
+          <div class="b-skill-bar"><div class="b-skill-bar-fill"></div></div>
+          <span class="b-badge b-badge-yellow">Beginner</span>
+        </div>
+        <div class="b-tool-used">Used in 5 builds</div>
+      </div>
+    </div>
+
+    <div class="b-tool-card">
+      <div class="b-tool-icon">&#128295;</div>
+      <div class="b-tool-info">
+        <h4>PartDesigner</h4>
+        <p>Detailed part creation</p>
+        <div class="b-tool-skill b-skill-intermediate">
+          <div class="b-skill-bar"><div class="b-skill-bar-fill"></div></div>
+          <span class="b-badge b-badge-blue">Intermediate</span>
+        </div>
+        <div class="b-tool-used">Used in 7 builds</div>
+      </div>
+    </div>
+
+    <div class="b-tool-card">
+      <div class="b-tool-icon">&#127916;</div>
+      <div class="b-tool-info">
+        <h4>Moon Animator</h4>
+        <p>Custom character animations</p>
+        <div class="b-tool-skill b-skill-beginner">
+          <div class="b-skill-bar"><div class="b-skill-bar-fill"></div></div>
+          <span class="b-badge b-badge-yellow">Beginner</span>
+        </div>
+        <div class="b-tool-used">Used in 3 builds</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- GUIDE LINK (b- prefixed) -->
+  <div class="b-guide-box">
+    <div class="b-guide-icon">&#128218;</div>
+    <div class="b-guide-text">
+      <h4>New to building?</h4>
+      <p>Check out the official Roblox Studio guide to learn the basics of terrain, scripting, and publishing your first game.</p>
+    </div>
+    <a class="b-guide-link" href="https://create.roblox.com/docs/tutorials/curriculums/core/getting-started-with-roblox-studio" target="_blank" rel="noopener noreferrer">
+      Read the Guide &#8594;
+    </a>
+  </div>
+
+  <!-- REQUEST A BUILD FORM (b- prefixed) -->
+  <h2 class="section-title" style="margin-top:3rem;">Request a <span class="accent">Custom Build</span></h2>
+  <div class="divider"></div>
+  <p class="section-sub">Want a world like the ones above made for your group? Fill out the form and I'll get back to you.</p>
+
+  <form class="b-request-form" id="b-request-form">
+    <div class="b-form-row">
+      <div class="b-form-group">
+        <label class="b-form-label" for="b-req-name">Your Name</label>
+        <input class="b-form-input" type="text" id="b-req-name" name="name" placeholder="e.g. Alex" required>
+      </div>
+      <div class="b-form-group">
+        <label class="b-form-label" for="b-req-email">Email</label>
+        <input class="b-form-input" type="email" id="b-req-email" name="email" placeholder="e.g. alex@example.com" required>
+      </div>
+    </div>
+
+    <div class="b-form-row">
+      <div class="b-form-group">
+        <label class="b-form-label" for="b-req-genre">Build Type</label>
+        <select class="b-form-input" id="b-req-genre" name="genre" required>
+          <option value="" disabled selected>Choose a genre</option>
+          <option value="Roleplay">Roleplay</option>
+          <option value="Obby">Obby</option>
+          <option value="Tycoon">Tycoon</option>
+          <option value="Simulation">Simulation</option>
+          <option value="PvP">PvP</option>
+          <option value="Adventure">Adventure</option>
+          <option value="Survival">Survival</option>
+          <option value="Racing">Racing</option>
+          <option value="Battle Royale">Battle Royale</option>
+          <option value="Horror">Horror</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+      <div class="b-form-group">
+        <label class="b-form-label" for="b-req-budget">Estimated Budget (Robux)</label>
+        <input class="b-form-input" type="number" id="b-req-budget" name="budget" placeholder="e.g. 2000" min="0">
+      </div>
+    </div>
+
+    <div class="b-form-group">
+      <label class="b-form-label" for="b-req-desc">Describe Your Idea</label>
+      <textarea class="b-form-input b-form-textarea" id="b-req-desc" name="description" rows="4" placeholder="Tell me about the world, theme, and features you're imagining..." required></textarea>
+    </div>
+
+    <button type="submit" class="btn-primary b-form-submit">Submit Request</button>
+  </form>
+</div>
+
+<!-- BUILD DETAILS MODAL (b- prefixed, isolated from index.html modals) -->
+<div class="b-modal-overlay" id="b-modal-overlay">
+  <div class="b-modal-box">
+    <button class="b-modal-close" type="button" data-b-close>&times;</button>
+    <div id="b-modal-content"></div>
   </div>
 </div>
 
+<!-- FORM RESPONSE POPUP (b- prefixed, small confirmation popup) -->
+<div class="b-form-modal-overlay" id="b-form-modal-overlay">
+  <div class="b-form-modal-box">
+    <button class="b-modal-close" type="button" data-b-form-close>&times;</button>
+    <div id="b-form-modal-content"></div>
+  </div>
+</div>
 
+<footer>
+  &copy; 2026 RobloxWorld — Built by a Roblox developer, for Roblox developers.
+</footer>
 
 <script src="script.js"></script>
 </body>

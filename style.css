@@ -796,6 +796,19 @@ footer a { color: var(--rb-accent); text-decoration: none; }
 .text-highlight {
   color: var(--rb-accent);
 }
+.underline-style {
+  position: relative;
+  display: inline-block;
+}
+.underline-style::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 35px;
+  height: 3px;
+  background-color: var(--rb-accent);
+}
 
 /* ============================================================
    RESPONSIVE NAV (Bootstrap collapse) — desktop layout is

@@ -6,6 +6,7 @@
   --rb-accent: #e94560;
   --rb-light: #f0f0f0;
   --rb-muted: #a0aec0;
+  --rw-light: #FFFFFF;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -771,3 +772,55 @@ footer {
   border-top: 2px solid rgba(233,69,96,0.2); margin-top: 3rem;
 }
 footer a { color: var(--rb-accent); text-decoration: none; }
+
+/* ============================================================
+   PAGE HEADER — matches communitypage.html's Bstyle.css classes
+   exactly, so "My Builds" and "Join Our Community" render at
+   the same size/weight/spacing.
+   ============================================================ */
+.rw-hero {
+  background: linear-gradient(135deg, #1c2542 0%, #0c1122 100%);
+  color: var(--rw-light);
+}
+.rw-hero-title {
+  font-size: clamp(2.25rem, 5vw, 3.5rem);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+}
+.rw-hero-subtitle {
+  font-size: 1.05rem;
+  font-weight: 400;
+  color: var(--rb-muted);
+}
+.text-highlight {
+  color: var(--rb-accent);
+}
+
+/* ============================================================
+   RESPONSIVE NAV (Bootstrap collapse) — desktop layout is
+   untouched; below 768px the links tuck into a hamburger menu.
+   ============================================================ */
+.navbar-toggler { border-color: rgba(233,69,96,0.35); }
+.navbar-toggler:focus { box-shadow: 0 0 0 0.2rem rgba(233,69,96,0.35); }
+
+@media (max-width: 767.98px) {
+  .nav-collapse-wrap {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--rb-mid);
+    border-bottom: 3px solid var(--rb-accent);
+    z-index: 99;
+  }
+  .nav-collapse-wrap .nav-links {
+    flex-direction: column;
+    gap: 0;
+    padding: 8px 2rem 16px;
+  }
+  .nav-collapse-wrap .nav-btn {
+    padding: 12px 8px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+}

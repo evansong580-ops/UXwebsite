@@ -333,7 +333,7 @@ nav {
   margin-right: 6px;
 }
 
-/* ===== Milestone Popup ===== */
+/* Milestone Popup */
 .rw-modal-overlay {
   position: fixed;
   inset: 0;
@@ -453,7 +453,7 @@ nav {
   text-decoration: none;
 }
 
-/* Video popup (click-to-play YouTube embed) */
+/* Video popup embed Youtube video */
 .rw-yt-facade {
   position: relative;
   width: 100%;
@@ -565,7 +565,7 @@ nav {
   padding: 0.5rem 0.1rem;
 }
 
-/* ===== Fade In Up Stagger Animation ===== */
+/* Fade In Up Stagger Animation */
 @keyframes fadeInUp {
   from {
     opacity: 0;

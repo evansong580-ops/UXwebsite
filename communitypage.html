@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Join the RobloxWorld community — Discord, weekly game nights, and monthly build contests.">
   <title>RobloxWorld - Community</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="Bstyle.css">
@@ -9,9 +11,9 @@
 <body>
 <!-- NAV BAR CODE (Update in both files) -->
 <nav>
-  <div class="nav-logo" onclick="location.href='index.html'">
+  <a class="nav-logo" href="index.html">
     &#9632;<span>RobloxWorld</span>
-  </div>
+  </a>
   <div class="nav-links">
     <a href="index.html" class="nav-btn">Home</a>
     <a href="builds.html" class="nav-btn">My Builds</a>
@@ -21,87 +23,200 @@
 </nav>
 
 
-  <!-- Hero Section -->
-  <header class="text-center py-5 bg-primary text-white">
-    <h1>Join Our Community</h1>
-    <p>Connect with Roblox fans, share your builds, and find teammates.</p>
-  </header>
-
-  <!-- Features -->
-  <section class="container my-5">
-    <div class="row text-center">
-      <div class="col-md-4">
-        <div class="card p-3 shadow">
-          <h3>Discord Server</h3>
-          <p>Join our active Discord with 500+ members. Share builds, get feedback, and find collaborators.</p>
-          <a href="#" class="btn btn-primary">Join Discord →</a>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card p-3 shadow">
-          <h3>Weekly Game Nights</h3>
-          <p>Every Friday 8PM SGT we host group sessions exploring new Roblox games together.</p>
-          <p><strong>Next event:</strong> Fri, 25 Jul 2026</p>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card p-3 shadow">
-          <h3>Build Contests</h3>
-          <p>Monthly building competitions with themes. Winners get featured and earn community badges.</p>
-          <p><strong>Theme:</strong> Futuristic Cities</p>
-        </div>
-      </div>
+  <header class="rw-hero text-center py-5">
+    <div class="container py-4">
+        <h1 class="rw-hero-title">Join Our <span class="text-highlight">Community</span></h1>
+        <p class="rw-hero-subtitle mt-2">Connect with Roblox fans, share your builds, and find teammates</p>
     </div>
-  </section>
+</header>
 
-  <!-- Sign Up Form -->
-  <section class="container my-5">
-    <h2 class="text-center mb-4">Sign Up to Join</h2>
-    <form class="row g-3">
-      <div class="col-md-6">
-        <input type="text" class="form-control" placeholder="First Name">
-      </div>
-      <div class="col-md-6">
-        <input type="text" class="form-control" placeholder="Last Name">
-      </div>
-      <div class="col-md-6">
-        <input type="email" class="form-control" placeholder="Email Address">
-      </div>
-      <div class="col-md-6">
-        <input type="text" class="form-control" placeholder="Roblox Username">
-      </div>
-      <div class="col-md-4">
-        <select class="form-select">
-          <option>Play Style</option>
-          <option>Builder</option>
-          <option>Explorer</option>
-        </select>
-      </div>
-      <div class="col-md-4">
-        <select class="form-select">
-          <option>Experience Level</option>
-          <option>Beginner</option>
-          <option>Intermediate</option>
-          <option>Advanced</option>
-        </select>
-      </div>
-      <div class="col-md-4">
-        <select class="form-select">
-          <option>Favourite Game Type</option>
-          <option>Obby</option>
-          <option>RPG</option>
-          <option>Simulator</option>
-        </select>
-      </div>
-      <div class="col-12">
-        <textarea class="form-control" rows="4" placeholder="Tell us a bit about yourself and why Roblox is your hobby..."></textarea>
-      </div>
-      <div class="col-12 text-center">
-        <button type="submit" class="btn btn-pink">Submit & Join Community</button>
-      </div>
-    </form>
-  </section>
+<main class="container my-5">
+    <div class="row g-4 mb-5">
+        <div class="col-md-4">
+            <div class="rw-card p-4 text-center h-100 d-flex flex-column justify-content-between">
+                <div>
+                    <div class="fs-1 mb-3">🌐</div>
+                    <h2 class="h5 fw-bold mb-3 text-start text-center">Roblox Community</h2>
+                    <p class="text-start opacity-75 small">Join Roblox's official community hub with millions of members. Follow platform news, connect with builders, and find people to play with.</p>
+                </div>
+                <div class="mt-3">
+                    <button type="button" class="btn rw-btn-submit w-100 fw-semibold" data-open-modal="robloxCommunityModal">Join Roblox Community</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4">
+            <div class="rw-card p-4 text-center h-100 d-flex flex-column justify-content-between">
+                <div>
+                    <div class="fs-1 mb-3">🎮</div>
+                    <h2 class="h5 fw-bold mb-3 text-start text-center">Weekly Game Nights</h2>
+                    <p class="text-start opacity-75 small">Every Friday 8PM SGT we host group sessions exploring new Roblox games together.</p>
+                    <p class="text-start"><span class="text-highlight fw-semibold small">Next: Fri, 25 Jul 2026</span></p>
+                </div>
+                <div class="mt-3">
+                    <button type="button" class="btn rw-btn-submit w-100 fw-semibold" data-open-modal="gameNightModal">&#9654; Watch Highlights</button>
+                </div>
+            </div>
+        </div>
 
-  <script src="Bscript.js"></script>
+        <div class="col-md-4">
+            <div class="rw-card p-4 text-center h-100 d-flex flex-column justify-content-between">
+                <div>
+                    <div class="fs-1 mb-3">🏆</div>
+                    <h2 class="h5 fw-bold mb-3 text-start text-center">Build Contests</h2>
+                    <p class="text-start opacity-75 small">Monthly building competitions with themes. Winners get featured and earn community badges.</p>
+                    <p class="text-start"><span class="text-highlight fw-semibold small">Theme: Futuristic Cities</span></p>
+                </div>
+                <div class="mt-3">
+                    <button type="button" class="btn rw-btn-submit w-100 fw-semibold" data-open-modal="buildContestModal">&#128269; Find a Game</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row justify-content-center pt-4">
+        <div class="col-12 text-center mb-4">
+            <h2 class="fw-bold fs-2">Sign Up to <span class="text-highlight underline-style">Join</span></h2>
+            <p class="text-muted small">Fill in the form below and we'll add you to our community roster!</p>
+        </div>
+        <div class="col-lg-7 col-md-9">
+            <form id="communityForm" class="rw-card p-4 p-md-5">
+                <div class="row g-3">
+                    <div class="col-md-6 text-start">
+                        <label class="form-label small fw-semibold">First Name *</label>
+                        <input type="text" class="form-control rw-input" placeholder="e.g. Alex" required>
+                    </div>
+                    <div class="col-md-6 text-start">
+                        <label class="form-label small fw-semibold">Last Name *</label>
+                        <input type="text" class="form-control rw-input" placeholder="e.g. Tan" required>
+                    </div>
+                    <div class="col-12 text-start">
+                        <label class="form-label small fw-semibold">Email Address *</label>
+                        <input type="email" id="communityEmail" class="form-control rw-input" placeholder="your@email.com" required>
+                    </div>
+                    <div class="col-12 text-start">
+                        <label class="form-label small fw-semibold">Roblox Username *</label>
+                        <input type="text" class="form-control rw-input" placeholder="Your Roblox display name" required>
+                    </div>
+                    <div class="col-md-6 text-start">
+                        <label class="form-label small fw-semibold">Play Style *</label>
+                        <select class="form-select rw-input" required>
+                            <option value="" selected disabled>-- Select --</option>
+                            <option>Casual Player</option>
+                            <option>Competitive</option>
+                            <option>Developer / Builder</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6 text-start">
+                        <label class="form-label small fw-semibold">Experience Level *</label>
+                        <select class="form-select rw-input" required>
+                            <option value="" selected disabled>-- Select --</option>
+                            <option>Beginner</option>
+                            <option>Intermediate</option>
+                            <option>Advanced</option>
+                        </select>
+                    </div>
+                    <div class="col-12 text-start">
+                        <label class="form-label small fw-semibold">Favourite Game Type</label>
+                        <select class="form-select rw-input">
+                            <option value="" selected disabled>-- Select --</option>
+                            <option>Obby / Platformer</option>
+                            <option>RPG / Adventure</option>
+                            <option>Simulator</option>
+                            <option>Tycoon</option>
+                        </select>
+                    </div>
+                    <div class="col-12 text-start">
+                        <label class="form-label small fw-semibold">Why do you want to join? *</label>
+                        <textarea class="form-control rw-input" rows="4" placeholder="Tell us a bit about yourself and why Roblox is your hobby..." required></textarea>
+                    </div>
+                    <div class="col-12 mt-4">
+                        <button type="submit" class="btn rw-btn-submit w-100 py-2 fw-bold">Submit & Join Community</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</main>
+
+<footer class="rw-footer text-center py-3 mt-5">
+    <p class="small mb-0"><span class="brand-square sm"></span><strong>RobloxWorld</strong> &mdash; Built with passion for Roblox & the community</p>
+</footer>
+
+<!-- ===== Roblox Community popup ===== -->
+<div class="rw-modal-overlay" id="robloxCommunityModal" data-generic hidden>
+  <div class="rw-modal" role="dialog" aria-modal="true" aria-labelledby="robloxCommunityTitle">
+    <button type="button" class="rw-modal-close" data-close-modal aria-label="Close">&times;</button>
+    <div class="rw-modal-icon">🌐</div>
+    <h3 class="rw-modal-title underline-style" id="robloxCommunityTitle">Roblox's Community</h3>
+    <p class="rw-modal-desc">
+      Roblox's official Community group is the hub for millions of players and builders &mdash; a great place to follow platform news, meet other creators, and find people to play and build with beyond just our Discord.
+    </p>
+    <a href="https://www.roblox.com/communities/7/Roblox#!/about" target="_blank" rel="noopener" class="btn rw-btn-submit w-100 fw-bold mt-3 rw-modal-cta">Join on Roblox &#8599;</a>
+  </div>
+</div>
+
+<!-- ===== Game Night video popup ===== -->
+<div class="rw-modal-overlay" id="gameNightModal" data-generic hidden>
+  <div class="rw-modal rw-modal--wide" role="dialog" aria-modal="true" aria-labelledby="gameNightTitle">
+    <button type="button" class="rw-modal-close" data-close-modal aria-label="Close">&times;</button>
+    <div class="rw-modal-icon">🎮</div>
+    <h3 class="rw-modal-title underline-style" id="gameNightTitle">Game Night Highlights</h3>
+    <p class="rw-modal-desc">A clip from a recent Friday session &mdash; swap in your own video below.</p>
+
+    <!-- Click-to-play YouTube embed. Swap data-yt-id for a different video. -->
+    <div class="rw-yt-facade" id="gameNightYT" data-yt-id="c3fnmN_o7wQ" role="button" tabindex="0" aria-label="Play video: Murder Mystery 2 funny moments compilation">
+      <img class="rw-yt-thumb" src="https://img.youtube.com/vi/c3fnmN_o7wQ/hqdefault.jpg" alt="Murder Mystery 2 funny moments compilation thumbnail">
+      <span class="rw-yt-play" aria-hidden="true">&#9658;</span>
+    </div>
+  </div>
+</div>
+
+<!-- ===== Build Contest game search popup ===== -->
+<div class="rw-modal-overlay" id="buildContestModal" data-generic hidden>
+  <div class="rw-modal rw-modal--wide" role="dialog" aria-modal="true" aria-labelledby="buildContestTitle">
+    <button type="button" class="rw-modal-close" data-close-modal aria-label="Close">&times;</button>
+    <div class="rw-modal-icon">🏆</div>
+    <h3 class="rw-modal-title underline-style" id="buildContestTitle">Find a Building Game</h3>
+    <p class="rw-modal-desc">Search for a favourite Roblox building or roleplay game to team up on for the next contest.</p>
+
+    <div class="rw-search-wrap">
+      <input type="text" id="gameSearchInput" class="form-control rw-input rw-search-input" placeholder="Search games e.g. &quot;a&quot;, &quot;bloxburg&quot;...">
+      <ul id="gameSearchResults" class="rw-search-results"></ul>
+    </div>
+
+    <a href="https://www.roblox.com/users/friends#!/friend-requests" target="_blank" rel="noopener" class="btn rw-btn-submit w-100 fw-bold mt-3 rw-modal-cta">Add Friends for Future Contests</a>
+  </div>
+</div>
+
+<!-- ===== Build Contest: selected game detail popup ===== -->
+<div class="rw-modal-overlay" id="gameDetailModal" data-generic hidden>
+  <div class="rw-modal rw-modal--wide" role="dialog" aria-modal="true" aria-labelledby="gameDetailTitle">
+    <button type="button" class="rw-modal-close" data-close-modal aria-label="Close">&times;</button>
+    <div class="rw-modal-icon">🎮</div>
+    <h3 class="rw-modal-title underline-style" id="gameDetailTitle"></h3>
+    <p class="rw-modal-desc" id="gameDetailDesc"></p>
+    <a href="https://www.roblox.com/users/friends#!/friend-requests" target="_blank" rel="noopener" class="btn rw-btn-submit w-100 fw-bold mt-3 rw-modal-cta">Add Friends for Future Contests</a>
+  </div>
+</div>
+
+<!-- ===== Sign-up confirmation popup ===== -->
+<div class="rw-modal-overlay" id="thankYouModal" data-generic hidden>
+  <div class="rw-modal rw-modal--wide" role="dialog" aria-modal="true" aria-labelledby="thankYouTitle">
+    <button type="button" class="rw-modal-close" data-close-modal aria-label="Close">&times;</button>
+    <div class="rw-modal-icon">🎉</div>
+    <h3 class="rw-modal-title underline-style" id="thankYouTitle">You're In!</h3>
+    <p class="rw-modal-desc">Thanks for signing up! You're now part of the RobloxWorld community &mdash; that means invites to our weekly game nights, early word on build contest themes, and a say in what gets built next.</p>
+    <p class="rw-modal-desc">A verification email has been sent to <strong id="thankYouEmail">your email</strong>. Check your inbox (and spam folder) to confirm your spot.</p>
+
+    <hr class="rw-modal-divider">
+
+    <p class="rw-modal-help-title">Need a hand?</p>
+    <p class="rw-modal-desc">If anything didn't go through, or you've got questions about your Roblox account itself, Roblox's own support team can help.</p>
+    <a href="https://www.roblox.com/support" target="_blank" rel="noopener" class="btn rw-btn-submit w-100 fw-bold mt-2 rw-modal-cta">Visit Roblox Support &#8599;</a>
+  </div>
+</div>
+
+<script src="Bscript.js"></script>
 </body>
 </html>

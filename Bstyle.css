@@ -453,6 +453,38 @@ nav {
   text-decoration: none;
 }
 
+/* Compact data summary shown inside the sign-up confirmation popup */
+.rw-modal-summary {
+  display: grid;
+  grid-template-columns: 118px 1fr;
+  row-gap: 0.5rem;
+  column-gap: 0.75rem;
+  text-align: left;
+  margin-top: 1rem;
+  font-size: 0.82rem;
+}
+
+.rw-modal-summary dt {
+  color: var(--rb-muted);
+  font-weight: 600;
+}
+
+.rw-modal-summary dd {
+  margin: 0;
+  opacity: 0.92;
+  word-break: break-word;
+}
+
+@media (max-width: 420px) {
+  .rw-modal-summary {
+    grid-template-columns: 1fr;
+    row-gap: 0.15rem;
+  }
+  .rw-modal-summary dd {
+    margin-bottom: 0.5rem;
+  }
+}
+
 /* Video popup embed Youtube video */
 .rw-yt-facade {
   position: relative;

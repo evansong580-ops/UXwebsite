@@ -84,11 +84,11 @@
                 <div class="row g-3">
                     <div class="col-md-6 text-start">
                         <label class="form-label small fw-semibold">First Name *</label>
-                        <input type="text" class="form-control rw-input" placeholder="e.g. Alex" required>
+                        <input type="text" id="firstName" class="form-control rw-input" placeholder="e.g. Alex" required>
                     </div>
                     <div class="col-md-6 text-start">
                         <label class="form-label small fw-semibold">Last Name *</label>
-                        <input type="text" class="form-control rw-input" placeholder="e.g. Tan" required>
+                        <input type="text" id="lastName" class="form-control rw-input" placeholder="e.g. Tan" required>
                     </div>
                     <div class="col-12 text-start">
                         <label class="form-label small fw-semibold">Email Address *</label>
@@ -96,11 +96,11 @@
                     </div>
                     <div class="col-12 text-start">
                         <label class="form-label small fw-semibold">Roblox Username *</label>
-                        <input type="text" class="form-control rw-input" placeholder="Your Roblox display name" required>
+                        <input type="text" id="robloxUsername" class="form-control rw-input" placeholder="Your Roblox display name" required>
                     </div>
                     <div class="col-md-6 text-start">
                         <label class="form-label small fw-semibold">Play Style *</label>
-                        <select class="form-select rw-input" required>
+                        <select id="playStyle" class="form-select rw-input" required>
                             <option value="" selected disabled>-- Select --</option>
                             <option>Casual Player</option>
                             <option>Competitive</option>
@@ -109,7 +109,7 @@
                     </div>
                     <div class="col-md-6 text-start">
                         <label class="form-label small fw-semibold">Experience Level *</label>
-                        <select class="form-select rw-input" required>
+                        <select id="experienceLevel" class="form-select rw-input" required>
                             <option value="" selected disabled>-- Select --</option>
                             <option>Beginner</option>
                             <option>Intermediate</option>
@@ -118,7 +118,7 @@
                     </div>
                     <div class="col-12 text-start">
                         <label class="form-label small fw-semibold">Favourite Game Type</label>
-                        <select class="form-select rw-input">
+                        <select id="favouriteGameType" class="form-select rw-input">
                             <option value="" selected disabled>-- Select --</option>
                             <option>Obby / Platformer</option>
                             <option>RPG / Adventure</option>
@@ -128,7 +128,7 @@
                     </div>
                     <div class="col-12 text-start">
                         <label class="form-label small fw-semibold">Why do you want to join? *</label>
-                        <textarea class="form-control rw-input" rows="4" placeholder="Tell us a bit about yourself and why Roblox is your hobby..." required></textarea>
+                        <textarea id="whyJoin" class="form-control rw-input" rows="4" placeholder="Tell us a bit about yourself and why Roblox is your hobby..." required></textarea>
                     </div>
                     <div class="col-12 mt-4">
                         <button type="submit" class="btn rw-btn-submit w-100 py-2 fw-bold">Submit & Join Community</button>
@@ -138,10 +138,6 @@
         </div>
     </div>
 </main>
-
-<footer class="rw-footer text-center py-3 mt-5">
-    <p class="small mb-0"><span class="brand-square sm"></span><strong>RobloxWorld</strong> &mdash; Built with passion for Roblox & the community</p>
-</footer>
 
 <!-- Roblox Community popup -->
 <div class="rw-modal-overlay" id="robloxCommunityModal" data-generic hidden>
@@ -206,8 +202,11 @@
     <button type="button" class="rw-modal-close" data-close-modal aria-label="Close">&times;</button>
     <div class="rw-modal-icon">🎉</div>
     <h3 class="rw-modal-title underline-style" id="thankYouTitle">You're In!</h3>
-    <p class="rw-modal-desc">Thanks for signing up! You're now part of the RobloxWorld community &mdash; that means invites to our weekly game nights, early word on build contest themes, and a say in what gets built next.</p>
-    <p class="rw-modal-desc">A verification email has been sent to <strong id="thankYouEmail">your email</strong>. Check your inbox (and spam folder) to confirm your spot.</p>
+    <p class="rw-modal-desc">Thanks for signing up, <strong id="thankYouName">friend</strong>! You're now part of the RobloxWorld community &mdash; that means invites to our weekly game nights, early word on build contest themes, and a say in what gets built next.</p>
+
+    <dl class="rw-modal-summary" id="thankYouSummary"></dl>
+
+    <p class="rw-modal-desc mt-3">A verification email has been sent to <strong id="thankYouEmail">your email</strong>. Check your inbox (and spam folder) to confirm your spot.</p>
 
     <hr class="rw-modal-divider">
 

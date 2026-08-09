@@ -6,10 +6,35 @@ document.addEventListener('DOMContentLoaded', () => {
         communityForm.addEventListener('submit', (e) => {
             e.preventDefault();
 
-            const emailInput = document.getElementById('communityEmail');
+            const data = {
+                'First Name': (document.getElementById('firstName') || {}).value || '',
+                'Last Name': (document.getElementById('lastName') || {}).value || '',
+                'Email': (document.getElementById('communityEmail') || {}).value || '',
+                'Roblox Username': (document.getElementById('robloxUsername') || {}).value || '',
+                'Play Style': (document.getElementById('playStyle') || {}).value || '',
+                'Experience Level': (document.getElementById('experienceLevel') || {}).value || '',
+                'Favourite Game Type': (document.getElementById('favouriteGameType') || {}).value || '',
+                'Why They Want To Join': (document.getElementById('whyJoin') || {}).value || ''
+            };
+
+            const thankYouName = document.getElementById('thankYouName');
             const thankYouEmail = document.getElementById('thankYouEmail');
-            if (thankYouEmail) {
-                thankYouEmail.textContent = (emailInput && emailInput.value) ? emailInput.value : 'your email';
+            const thankYouSummary = document.getElementById('thankYouSummary');
+
+            const fullName = [data['First Name'], data['Last Name']].filter(Boolean).join(' ');
+            if (thankYouName) thankYouName.textContent = fullName || 'friend';
+            if (thankYouEmail) thankYouEmail.textContent = data['Email'] || 'your email';
+
+            if (thankYouSummary) {
+                thankYouSummary.innerHTML = '';
+                Object.keys(data).forEach((label) => {
+                    const dt = document.createElement('dt');
+                    dt.textContent = label;
+                    const dd = document.createElement('dd');
+                    dd.textContent = data[label] && data[label].trim() !== '' ? data[label] : '—';
+                    thankYouSummary.appendChild(dt);
+                    thankYouSummary.appendChild(dd);
+                });
             }
 
             communityForm.reset();
@@ -183,7 +208,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Buildi Contest tab
+    // Build Contest tab
     const buildGames = [
         { name: 'Build A Boat For Treasure', desc: 'Build wild boats (or planes) and sail through treasure-filled worlds solving puzzles along the way.' },
         { name: 'Bloxburg', desc: 'Design and furnish your dream house, take on jobs, and live out a roleplay life in a suburban town.' },

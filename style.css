@@ -12,15 +12,15 @@
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { font-family: 'Segoe UI', sans-serif; background: var(--rb-dark); color: var(--rb-light); min-height: 100vh; }
 
-/*Navigation bar */
+/*nav bar */
 nav {
-  background: var(--rb-mid); /* Deep Navy background */
+  background: var(--rb-mid); 
   padding: 0 2rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 64px;
-  border-bottom: 3px solid var(--rb-accent); /* Accent border along the bottom */
+  border-bottom: 3px solid var(--rb-accent); 
   position: sticky;
   top: 0;
   z-index: 100;
@@ -46,7 +46,7 @@ nav {
   gap: 6px;
 }
 
-/* Navigation button (look same) */
+/* nav button */
 .nav-btn {
   background: transparent;
   color: var(--rb-muted);
@@ -59,13 +59,13 @@ nav {
   display: inline-block;
 }
 
-/* Hover button */
+/* hover button */
 .nav-btn:hover {
   background: var(--rb-card);
   color: #ffffff;
 }
 
-/* HERO */
+/* hero */
 .hero {
   background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
   background-size: 250% 250%;
@@ -125,7 +125,7 @@ nav {
 .section-sub { color: var(--rb-muted); margin-bottom: 2rem; font-size: 0.95rem; }
 .divider { width: 50px; height: 4px; background: var(--rb-accent); border-radius: 2px; margin: 0.5rem 0 1.5rem; }
 
-/* stats "why roblox" section (index.html only) */
+/* stats for "why roblox" section  */
 .stats-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1rem; margin-bottom: 2.5rem; }
 .stat-card {
   background: var(--rb-card); border-radius: 10px; padding: 1.2rem;
@@ -139,7 +139,7 @@ nav {
 .stat-card .num { font-size: 2rem; font-weight: 900; color: var(--rb-accent); }
 .stat-card .label { font-size: 0.8rem; color: var(--rb-muted); margin-top: 4px; }
 
-/* cards, "why roblox" section */
+/* cards for "why roblox" section */
 .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; }
 .card {
   background: var(--rb-card);
@@ -158,7 +158,6 @@ nav {
 }
 .card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; }
 .card p { color: var(--rb-muted); font-size: 0.9rem; line-height: 1.6; }
-/* Cards, trigger */
 .card { cursor: pointer; }
 
 /* fade animation */
@@ -202,7 +201,7 @@ nav {
 }
 .play-btn:hover { background: var(--rb-accent); }
 
-/* roblox table (top, index.html games table) */
+/* roblox table games table for index.html */
 .table-controls { margin-bottom: 1rem; }
 .table-search { max-width: 280px; }
 
@@ -263,7 +262,7 @@ tbody td:first-child { color: #fff; font-weight: 600; }
 }
 .table-scroll-wrap.at-bottom .table-fade { opacity: 0; }
 
-/* modals (index.html) for build anything, play together, earn robux  */
+/* modals for build anything, play together, earn robux  */
 .modal-overlay {
   display: none;
   position: fixed;
@@ -367,7 +366,7 @@ tbody td:first-child { color: #fff; font-weight: 600; }
 }
 .quiz-btn:hover { background: var(--rb-accent); }
 
-/* modal for login, tab, quiz, friends (index.html) */
+/* modal for login, tab, quiz, friends */
 .hidden { display: none !important; }
 
 .modal-box-wide { max-width: 560px; }
@@ -471,11 +470,7 @@ tbody td:first-child { color: #fff; font-weight: 600; }
 .quiz-countdown { color: var(--rb-accent); font-weight: 600; margin-top: 0.4rem; }
 
 
-/* ============================================================
-   BUILDS PAGE (builds.html) — every selector below is prefixed
-   with "b-" so it is fully isolated from index.html's classes
-   and can never clash or be accidentally overridden by it.
-   ============================================================ */
+/* this for build.html page */
 
 /* stats row at top of My Builds */
 .b-stats-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1rem; margin-bottom: 2.5rem; }
@@ -538,7 +533,7 @@ tbody td:first-child { color: #fff; font-weight: 600; }
 .b-build-info p { font-size: 0.8rem; color: var(--rb-muted); }
 .b-build-meta { display: flex; gap: 12px; margin-top: 8px; font-size: 0.78rem; color: var(--rb-muted); flex-wrap: wrap; }
 
-/* build tools grid (replaces table) */
+/* build tools grid */
 .b-tools-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -635,7 +630,7 @@ tbody td:first-child { color: #fff; font-weight: 600; }
 }
 .b-modal-close:hover { background: var(--rb-accent); }
 
-/* back button: floats over the banner image, top-left */
+/* back button for floating over the banner image */
 .b-back-btn {
   position: absolute;
   top: 12px; left: 12px;
@@ -654,7 +649,7 @@ tbody td:first-child { color: #fff; font-weight: 600; }
 }
 .b-back-btn:hover { background: var(--rb-accent); }
 
-/* banner: gradient thumbnail + genre chip, like a Roblox game page header image */
+/* banner for gradient thumbnail, genre chip */
 .b-modal-banner {
   height: 140px;
   margin: -2rem -2rem 1.2rem;
@@ -672,12 +667,12 @@ tbody td:first-child { color: #fff; font-weight: 600; }
   backdrop-filter: blur(2px);
 }
 
-/* title + creator byline */
+/* title, creator for the games */
 .b-modal-box h2 { font-size: 1.4rem; margin-bottom: 0.15rem; }
 .b-modal-creator { color: var(--rb-muted); font-size: 0.82rem; margin-bottom: 1rem; }
 .b-modal-creator span { color: var(--rb-accent); font-weight: 600; }
 
-/* Play button, styled after Roblox's green play CTA — now a real link */
+/* Play button for the games */
 .b-play-btn {
   width: 100%;
   background: #00a651;
@@ -703,7 +698,7 @@ tbody td:first-child { color: #fff; font-weight: 600; }
   margin-bottom: 1.2rem;
 }
 
-/* stat bar: Playing | Like% | Favorites, divided like Roblox's game page */
+/* stat bar for Playing, Like%, Favorites */
 .b-modal-statbar {
   display: flex;
   align-items: stretch;
@@ -724,7 +719,7 @@ tbody td:first-child { color: #fff; font-weight: 600; }
 .b-modal-stat-num { font-size: 0.95rem; font-weight: 800; color: #fff; }
 .b-modal-stat-label { font-size: 0.68rem; color: var(--rb-muted); }
 
-/* like bar, thumbs-up % fill (replaces star rating, matches current Roblox UI) */
+/* like bar and thumbs up %  */
 .b-like-bar {
   width: 100%; max-width: 70px;
   height: 6px; border-radius: 4px;
@@ -739,7 +734,7 @@ tbody td:first-child { color: #fff; font-weight: 600; }
 
 .b-modal-text { color: var(--rb-muted); margin: 0.8rem 0; line-height: 1.6; font-size: 0.92rem; }
 
-/* meta footer: created / updated / server size */
+/* for created, updated, server size */
 .b-modal-meta {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -751,7 +746,7 @@ tbody td:first-child { color: #fff; font-weight: 600; }
 .b-modal-meta-item { font-size: 0.76rem; color: var(--rb-muted); }
 .b-modal-meta-item span { display: block; color: #fff; font-weight: 600; font-size: 0.82rem; margin-top: 1px; }
 
-/* build thumbnail gradients (12 unique, b- prefixed) */
+/* thumbnail gradient */
 .b-bg1  { background: linear-gradient(135deg, #1a1a2e, #e94560); }
 .b-bg2  { background: linear-gradient(135deg, #0f3460, #533483); }
 .b-bg3  { background: linear-gradient(135deg, #16213e, #0f9b58); }
@@ -765,15 +760,8 @@ tbody td:first-child { color: #fff; font-weight: 600; }
 .b-bg11 { background: linear-gradient(135deg, #16213e, #3498db); }
 .b-bg12 { background: linear-gradient(135deg, #1a1a2e, #533483); }
 
-/* FOOTER (not present on index.html) */
-footer {
-  background: var(--rb-mid); text-align: center; padding: 1.5rem;
-  color: var(--rb-muted); font-size: 0.85rem;
-  border-top: 2px solid rgba(233,69,96,0.2); margin-top: 3rem;
-}
-footer a { color: var(--rb-accent); text-decoration: none; }
 
-/* GUIDE LINK BOX — "New to building?" callout */
+/* guide link box */
 .b-guide-box {
   display: flex;
   align-items: center;
@@ -810,7 +798,7 @@ footer a { color: var(--rb-accent); text-decoration: none; }
   transform: translateX(3px);
 }
 
-/* FORM RESPONSE POPUP — confirmation shown after "Request a Custom Build" submit */
+/* form response pop out */
 .b-form-modal-overlay {
   display: none;
   position: fixed;
@@ -883,11 +871,7 @@ footer a { color: var(--rb-accent); text-decoration: none; }
   word-break: break-word;
 }
 
-/* ============================================================
-   PAGE HEADER — matches communitypage.html's Bstyle.css classes
-   exactly, so "My Builds" and "Join Our Community" render at
-   the same size/weight/spacing.
-   ============================================================ */
+/* page header  */
 .rw-hero {
   background: linear-gradient(135deg, #1c2542 0%, #0c1122 100%);
   color: var(--rw-light);
@@ -920,10 +904,7 @@ footer a { color: var(--rb-accent); text-decoration: none; }
   background-color: var(--rb-accent);
 }
 
-/* ============================================================
-   RESPONSIVE NAV (Bootstrap collapse) — desktop layout is
-   untouched; below 768px the links tuck into a hamburger menu.
-   ============================================================ */
+/* bootstrap */
 .navbar-toggler { border-color: rgba(233,69,96,0.35); }
 .navbar-toggler:focus { box-shadow: 0 0 0 0.2rem rgba(233,69,96,0.35); }
 

@@ -24,6 +24,22 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // modal video, thumbnail click to play (Build Anything modal)
+  const buildPlayBtn = document.getElementById('play-video-btn');
+  if (buildPlayBtn) {
+    buildPlayBtn.addEventListener('click', () => {
+      const box = document.getElementById('build-video-box');
+      box.innerHTML = `
+        <iframe src="https://www.youtube.com/embed/IJFjBH_PfXQ?autoplay=1"
+          title="Roblox Studio Basics Tutorial"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>`;
+    });
+  }
+
+  // table for sort, search, scroll fade
+
   // table for sort, search, scroll fade
   const gamesTbody = document.getElementById('games-tbody');
   const gamesTableWrap = document.getElementById('games-table-wrap');

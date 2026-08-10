@@ -1,7 +1,7 @@
 // interactive for roblox world
 document.addEventListener('DOMContentLoaded', () => {
 
-  // cards for open modal when a card is clicked for the "WHY roblox"
+  // when card is click on  "WHY roblox"
   const modalCards = document.querySelectorAll('.card[data-modal]');
   modalCards.forEach(card => {
     card.addEventListener('click', () => {
@@ -272,7 +272,7 @@ document.addEventListener('DOMContentLoaded', () => {
     { q: 'What program lets developers cash out Robux?', options: ['DevEx', 'RoCash', 'ExChange'], answer: 'DevEx' }
   ];
 
-  let quizUnlockTime = null; // in-memory only — resets on page reload
+  let quizUnlockTime = null;
   const WEEK_MS = 7 * 24 * 60 * 60 * 1000;
   let countdownInterval = null;
 
@@ -318,7 +318,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function loadQuizQuestion() {
     const questionBox = document.getElementById('quiz-question-box');
-    if (!questionBox) return; // quiz UI isn't on this page (e.g. builds.html) — nothing to do
+    if (!questionBox) return; 
 
     if (isQuizLocked()) { showLockedState(); return; }
 
@@ -385,7 +385,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  //modals(shared), close modal by close button or clicking outside the box
+  //close modal by close button or clicking outside the box
   const overlays = document.querySelectorAll('.modal-overlay');
   overlays.forEach(overlay => {
     overlay.addEventListener('click', (e) => {
@@ -395,12 +395,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-
-  // ============================================================
-  // BUILDS PAGE (builds.html) — everything below is namespaced
-  // with a "b" prefix (bBuildsData, .b-* classes/ids) so it can
-  // never clash with the index.html logic above.
-  // ============================================================
+  // for builds.html
 
   const bBuildsData = {
     1: {
@@ -561,12 +556,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // ------------------------------------------------------------
-  // REQUEST-A-BUILD FORM POPUP (builds.html only)
-  // On submit, shows a small confirmation popup with the entered
-  // data instead of navigating to another page. No backend needed
-  // — this is purely client-side, all data stays on this page.
-  // ------------------------------------------------------------
+
+  // form pop up 
+  // when click submit it shows a small confirmation popup with the entered details
+ 
+
   const bRequestForm = document.getElementById('b-request-form');
   const bFormModalOverlay = document.getElementById('b-form-modal-overlay');
   const bFormModalContent = document.getElementById('b-form-modal-content');
